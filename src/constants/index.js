@@ -1,30 +1,160 @@
-export const headerStyleConfig = { BackgroundColor: '#fff' }
-export const fontWeightConfig = { Regular: 'RetniSans-Regular', BoldItalic: 'RetniSans-BoldItalic', Italic: 'RetniSans-Italic', Light: 'RetniSans-Light', LightItalic: 'RetniSans-LightItalic', Medium: 'RetniSans-Medium', MediumItalic: 'RetniSans-MediumItalic', Bold: 'RetniSans-Bold' }
-export const fontsLoadedConfig = {'Jano-Regular': require('../../assets/fonts/Jano-Sans-Pro-Regular.otf'), 'Jano-SemiBold': require('../../assets/fonts/Jano-Sans-Pro-SemiBold.otf'), 'Jano-Bold': require('../../assets/fonts/Jano-Sans-Pro-Bold.otf')}
-export const colors = {primary: {600: '#09189E', 500: '#0519D0', 400: '#528BFF'}, gray: {0: '#FFFFFF', 100: '#F2F2F3', 400: '#E1E1E4', 600: '#8A8F95', 700: '#686D73', 800: '#19191A'}, support: {Blue: {100: '#E0EDFA', 500: '#1671C5' }, Purple: {100: '#F0E3FC', 500: '#752CBD'}, Green: {100: '#DCF3E5', 500: '#0C663B'}, Red: {100: '#FDEDED', 500: '#C51818'}}}
-export const buttonConfig = { 
-    Utils: { fontFamily: 'Jano-Bold' }, 
-    Default: 
-    { Primary: 
-        { Default: 
-            { Width: '100%', Height: '56px' , BackgroundColor: colors.primary[600], Radius: '12px', Padding: '17px 24px', Color: colors.gray[0] }, 
-          Small: 
-            { Width: '100%', Height: '34px' , BackgroundColor: colors.primary[600], Radius: '8px', Padding: '16px 24px 16px 24px', Color: colors.gray[0] },
-        
-        },
-    },
-    Ontouch: 
-    {   
-        Primary: 
-        {
-            Default: 
-            {
-                Width: '100%', Height: '64px' , BackgroundColor: colors.primary[900], Radius: '8px', Padding: '16px', Color: colors.gray[0]
-            },
-            Small: 
-            {
-                Width: '100%', Height: '48px' , BackgroundColor: colors.primary[900], Radius: '8px', Padding: '16px 24px 16px 24px', Color: colors.gray[0]
-            }
-        },
-    }
+// export const fontWeightConfig = {
+//   Regular: 'RetniSans-Regular',
+//   BoldItalic: 'RetniSans-BoldItalic',
+//   Italic: 'RetniSans-Italic',
+//   Light: 'RetniSans-Light',
+//   LightItalic: 'RetniSans-LightItalic',
+//   Medium: 'RetniSans-Medium',
+//   MediumItalic: 'RetniSans-MediumItalic',
+//   Bold: 'RetniSans-Bold'
+// }
+
+export const fontsLoadedConfig = {
+  'Jano-Regular': require('../../assets/fonts/Jano-Sans-Pro-Regular.otf'),
+  'Jano-SemiBold': require('../../assets/fonts/Jano-Sans-Pro-SemiBold.otf'),
+  'Jano-Bold': require('../../assets/fonts/Jano-Sans-Pro-Bold.otf')
+};
+
+export const spacing = {
+  half: '4px',
+  base: '8px',
+  default: '12px',
+  medium: '14px',
+  title: '16px',
 }
+
+export const colors = {
+  primary: {
+    100: '#E8EFFF',
+    200: '#D1DEFD',
+    300: '#84ADFF',
+    400: '#528BFF',
+    500: '#0519D0',
+    600: '#09189E'
+  },
+  gray: {
+    100: '#FEFEFE',
+    200: '#FCFCFD',
+    300: '#EAECF0',
+    400: '#DEE1E6',
+    500: '#98A2B3',
+    600: '#667085',
+    800: '#1D2939'
+  },
+  error: {
+    100: '#FEF3F2',
+    200: '#FECDCA',
+    500: '#D92D20',
+    600: '#B42318',
+  },
+  success: {
+    100: '#E1F9EB',
+    200: '#D1FADF',
+    500: '#039855',
+    600: '#027A48'
+  },
+  alert: {
+    100: '#FEF4EB',
+    200: '#F9D3B0',
+    500: '#E57207',
+    600: '#B95900'
+  }
+};
+
+export const headerStyleConfig = {
+  BackgroundColor: colors.gray[100]
+};
+
+
+export const buttonConfig = {
+  Utils: {
+    fontFamily: 'Jano-Bold'
+  },
+  Default: {
+    Primary: {
+      Default: {
+        Width: '100%',
+        Height: '56px',
+        BackgroundColor: colors.primary[500],
+        Radius: '12px',
+        Padding: '17px 24px',
+        Color: colors.gray[100]
+      },
+      Small:
+      {
+        Width: '100%',
+        Height: '34px',
+        BackgroundColor: colors.primary[600],
+        Radius: '8px',
+        Padding: '16px 24px 16px 24px',
+        Color: colors.gray[100]
+      },
+    },
+  },
+  Ontouch: {
+    Primary: {
+      Default: {
+        Width: '100%',
+        Height: '64px',
+        BackgroundColor: colors.primary[600],
+        Radius: '8px',
+        Padding: '16px',
+        Color: colors.gray[100]
+      },
+      Small: {
+        Width: '100%',
+        Height: '48px',
+        BackgroundColor: colors.primary[600],
+        Radius: '8px',
+        Padding: '16px 24px 16px 24px',
+        Color: colors.primary[100]
+      }
+    },
+  }
+};
+
+export const badgedConfig = {
+  Utils: {
+    fontFamily: 'Jano-SemiBold',
+    FontSize: spacing.default,
+    Radius: '32px',
+    Padding: '2px 8px',
+  },
+  Default: {
+    BackgroundColor: colors.primary[100],
+    Color: colors.primary[500]
+  },
+  Disabled: {
+    BackgroundColor: colors.gray[300],
+    Color: colors.gray[500]
+  },
+  Success: {
+    BackgroundColor: colors.success[100],
+    Color: colors.success[600]
+  },
+};
+
+export const parkingCardConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold'
+    },
+    BorderRadius: '8px',
+    BorderBottomColor: colors.gray[300],
+    FontSize: {
+      Default: spacing.default,
+      Medium: spacing.medium,
+      Title: spacing.title
+    },
+    TextColor: colors.gray[600],
+    IconSize: 14,
+    IconColor: colors.gray[600],
+  },
+  Default: {
+    TitleColor: colors.gray[800]
+  },
+  Disabled: {
+    TitleColor: colors.gray[600]
+  },
+};
