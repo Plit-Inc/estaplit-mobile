@@ -1,13 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import MainButton from './src/components/utils/MainButton';
 import * as SplashScreen from 'expo-splash-screen';
 import { fontsLoadedConfig } from './src/constants/index.js';
 import { useFonts } from 'expo-font';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import Input from './src/components/utils/Input';
+import { configureFonts, MD2LightTheme, PaperProvider } from 'react-native-paper';
+import * as Constants from "./src/constants/index";
+import DateToggle from './src/components/utils/DateToggle';
+
 
 export default function App() {
+  const paperTheme = {
+    ...MD2LightTheme,
+    fonts: configureFonts({config: Constants.paperFontConfig, isV3: false}),
+    colors: {
+      ...MD2LightTheme.colors,
+      primary: Constants.colors.primary[600],
+      secondary: Constants.colors.primary[400],
+    },
+  };
   const [fontsLoaded] = useFonts(fontsLoadedConfig);
+  const [inputText, setInputText] = useState("");
+  const [isSelected, setIsSelected] = useState(true);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -19,19 +35,13 @@ export default function App() {
     return null;
   }
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text>Open up App.js to star working on your app!</Text>
-      <MainButton text={"teste"} buttonName={"arrow-forward"} />
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={paperTheme}>
+      <ScrollView contentContainerStyle={{justifyContent: 'center', height: '100%', width: '100%', padding: 20, gap: 10}} onLayout={onLayoutRootView}>
+        <Input label={"label"} placeholder={"placeholder"} state={inputText} setState={setInputText}/>
+        <MainButton text={"action"} buttonName={"arrow-forward"} />
+        <DateToggle headerDateText={"12/10"} mainDateText={"Hoje"} isSelected={isSelected} setIsSelected={setIsSelected}/>
+      </ScrollView>
+    </PaperProvider>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
