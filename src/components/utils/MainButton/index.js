@@ -1,16 +1,32 @@
-import { Text } from "react-native";
-import { MainButtonStyle, MainButtonTextStyle } from "./style";
+import { MainButtonStyle, MainButtonTextStyle } from './style';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import * as Constants from "../../../constants/index";
+import { buttonConfig } from '../../../constants';
 
+export default function MainButton({ text, iconName, styleName }) {
+  const styles = {
+    default: buttonConfig.Default.Primary.Default,
+    transparent: buttonConfig.Default.Primary.Transparent,
+  };
 
-export default function MainButton({ text, buttonName }) {
-    return (
-        <MainButtonStyle>
-            <MainButtonTextStyle>
-                {text}
-            </MainButtonTextStyle>
-            <Ionicons name={buttonName} size={17} color={Constants.buttonConfig.Default.Primary.Default.Color} />
-        </MainButtonStyle>
-    )
+  const buttonStyle = styles[styleName];
+
+  return (
+    <MainButtonStyle
+      backgroundColor={buttonStyle.BackgroundColor}
+      border={buttonStyle.Border}
+      padding={buttonStyle.Padding}
+    >
+      <MainButtonTextStyle
+        textColor={buttonStyle.Color}
+        lineHeight={buttonStyle.LineHeight}
+      >
+        {text}
+      </MainButtonTextStyle>
+      <Ionicons
+        name={iconName}
+        size={buttonStyle.IconSize}
+        color={buttonStyle.Color}
+      />
+    </MainButtonStyle>
+  );
 }
