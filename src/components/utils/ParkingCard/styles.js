@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as Constants from "../../../constants/index";
+import * as Constants from '../../../constants/index';
 
 export const Element = styled.View`
   width: 100%;
@@ -15,17 +15,6 @@ export const ParkImageCard = styled.Image`
   width: 64px;
   height: 72px;
   border-radius: ${Constants.parkingCardConfig.Utils.BorderRadius};
-`;
-
-export const Title = styled.Text`
-  font-family: ${Constants.parkingCardConfig.Utils.fontFamily.SemiBold};
-  color: ${(props) => (
-    props.open ?
-      Constants.parkingCardConfig.Default.TitleColor :
-      Constants.parkingCardConfig.Disabled.TitleColor
-  )};
-  font-size: ${Constants.parkingCardConfig.Utils.FontSize.Title};
-  padding-bottom: 8px;
 `;
 
 export const Info = styled.View`

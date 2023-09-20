@@ -1,38 +1,44 @@
-import React from 'react'
-import {
-  Badges,
-  Element,
-  ParkImageCard,
-  Info,
-  InfoText,
-  Row,
-  Title
-} from "./styles";
-import Badge from "../Badge";
-import { View } from "react-native";
+import React from 'react';
+import { Badges, Element, ParkImageCard, Info, InfoText, Row } from './styles';
+import Badge from '../Badge';
+import { View } from 'react-native';
 import { Clock, MapPinLine, Star, Money } from 'phosphor-react-native';
-import * as Constants from "../../../constants/index";
+import { parkingCardConfig } from '../../../constants/index';
+import Title from '../Title';
 
-
-function ParkingCard({ isOpen, price, title, review, distance, hours, imagePath }) {
-
+function ParkingCard({
+  isOpen,
+  price,
+  title,
+  review,
+  distance,
+  hours,
+  imagePath,
+}) {
   return (
     <Element>
       <ParkImageCard source={{ uri: imagePath }} />
       <View>
-        <Title open={isOpen}>{title}</Title>
+        <Title
+          text={title}
+          color={
+            isOpen
+              ? parkingCardConfig.Default.TitleColor
+              : parkingCardConfig.Disabled.TitleColor
+          }
+        />
         <Row>
           <Info>
             <MapPinLine
-              size={Constants.parkingCardConfig.Utils.IconSize}
-              color={Constants.parkingCardConfig.Utils.IconColor}
+              size={parkingCardConfig.Utils.IconSize}
+              color={parkingCardConfig.Utils.IconColor}
             />
             <InfoText>{distance} do seu destino</InfoText>
           </Info>
           <Info>
             <Star
-              size={Constants.parkingCardConfig.Utils.IconSize}
-              color={Constants.parkingCardConfig.Utils.IconColor}
+              size={parkingCardConfig.Utils.IconSize}
+              color={parkingCardConfig.Utils.IconColor}
             />
             <InfoText>{review}</InfoText>
           </Info>
@@ -40,15 +46,15 @@ function ParkingCard({ isOpen, price, title, review, distance, hours, imagePath 
         <Row>
           <Info>
             <Money
-              size={Constants.parkingCardConfig.Utils.IconSize}
-              color={Constants.parkingCardConfig.Utils.IconColor}
+              size={parkingCardConfig.Utils.IconSize}
+              color={parkingCardConfig.Utils.IconColor}
             />
             <InfoText>A partir de {price}</InfoText>
           </Info>
           <Info>
             <Clock
-              size={Constants.parkingCardConfig.Utils.IconSize}
-              color={Constants.parkingCardConfig.Utils.IconColor}
+              size={parkingCardConfig.Utils.IconSize}
+              color={parkingCardConfig.Utils.IconColor}
             />
             <InfoText>{hours}</InfoText>
           </Info>
@@ -59,7 +65,7 @@ function ParkingCard({ isOpen, price, title, review, distance, hours, imagePath 
         </Badges>
       </View>
     </Element>
-  )
+  );
 }
 
 export default ParkingCard;
