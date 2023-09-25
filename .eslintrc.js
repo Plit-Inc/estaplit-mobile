@@ -28,10 +28,7 @@ module.exports = {
     'react/no-children-prop': 1,
     'import/no-named-as-default': 0,
     'import/prefer-default-export': 'off',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': 'off',
     'no-extra-semi': 'off',
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
@@ -55,9 +52,7 @@ module.exports = {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },

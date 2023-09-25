@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 export const fontsLoadedConfig = {
   'Jano-Regular': require('../../assets/fonts/Jano-Sans-Pro-Regular.otf'),
   'Jano-SemiBold': require('../../assets/fonts/Jano-Sans-Pro-SemiBold.otf'),
@@ -6,6 +7,7 @@ export const fontsLoadedConfig = {
   'Jano-Light': require('../../assets/fonts/Jano-Sans-Pro-Light.otf'),
   'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf'),
 };
+/* eslint-enable global-require */
 
 export const fontConfig = {
   Regular: 'Jano-Regular',
@@ -177,6 +179,19 @@ export const parkingCardConfig = {
   },
   Disabled: {
     TitleColor: colors.gray[600],
+  },
+};
+
+export const navigationConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold',
+    },
+    padding: '17px',
+    FontSize: spacing.large,
+    Color: colors.primary[500],
+    IconSize: 20,
   },
 };
 

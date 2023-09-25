@@ -1,11 +1,28 @@
-import { DateToggleStyle, HeaderDateTextStyle, MainButtonStyle, MainButtonTextStyle, MainDateTextStyle } from "./style";
+import {
+  DateToggleStyle,
+  HeaderDateTextStyle,
+  MainButtonStyle,
+  MainButtonTextStyle,
+  MainDateTextStyle,
+} from './style';
 
-
-export default function DateToggle({ headerDateText, mainDateText, isSelected, setIsSelected }) {
-    return (
-        <DateToggleStyle isSelected={isSelected} onPress={() => setIsSelected(!isSelected)}>
-            <HeaderDateTextStyle isSelected={isSelected}>{headerDateText}</HeaderDateTextStyle>
-            <MainDateTextStyle isSelected={isSelected}>{mainDateText}</MainDateTextStyle>
-        </DateToggleStyle>
-    )
+export default function DateToggle({
+  headerDateText,
+  mainDateText,
+  isSelected,
+  setIsSelected,
+}) {
+  return (
+    <DateToggleStyle
+      isSelected={isSelected}
+      onPress={() => setIsSelected(!isSelected)}
+    >
+      <HeaderDateTextStyle isSelected={isSelected}>
+        {headerDateText}
+      </HeaderDateTextStyle>
+      <MainDateTextStyle isSelected={isSelected}>
+        {mainDateText}
+      </MainDateTextStyle>
+    </DateToggleStyle>
+  );
 }
