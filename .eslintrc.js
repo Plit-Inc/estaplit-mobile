@@ -8,11 +8,10 @@ module.exports = {
     'airbnb',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript',
+    'plugin:import/javascript',
   ],
-  plugins: ['react', 'prettier'],
+  plugins: ['react'],
   rules: {
-    'prettier/prettier': ['error', { singleQuote: true, semi: true }],
     semi: ['error', 'always'],
     indent: 'off',
     'function-paren-newline': 'off',
@@ -28,10 +27,7 @@ module.exports = {
     'react/no-children-prop': 1,
     'import/no-named-as-default': 0,
     'import/prefer-default-export': 'off',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': 'off',
     'no-extra-semi': 'off',
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
@@ -55,9 +51,7 @@ module.exports = {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },

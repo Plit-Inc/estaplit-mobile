@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 export const fontsLoadedConfig = {
   'Jano-Regular': require('../../assets/fonts/Jano-Sans-Pro-Regular.otf'),
   'Jano-SemiBold': require('../../assets/fonts/Jano-Sans-Pro-SemiBold.otf'),
