@@ -34,7 +34,7 @@ function TicketCard({ title }) {
             <Text>11:00</Text>
           </HeaderContent>
         </HeaderRow>
-        <Badge label="Confirmado" type="success" />
+        <Badge label="Confirmada" type="success" />
       </Header>
       <Content>
         <Title text={title} color={ticketCardConfig.Utils.TitleColor} />

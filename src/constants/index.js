@@ -24,6 +24,8 @@ export const spacing = {
   medium: '14px',
   large: '16px',
   largeS: '22px',
+  subtitle: '24px',
+  title: '26px',
   largeS2: '32px',
 };
 
@@ -78,7 +80,7 @@ export const titleConfig = {
 
 export const buttonConfig = {
   Utils: {
-    fontFamily: 'Jano-Bold',
+    fontFamily: 'Jano-SemiBold',
   },
   Default: {
     Primary: {
@@ -87,10 +89,12 @@ export const buttonConfig = {
         Height: '56px',
         BackgroundColor: colors.primary[500],
         Radius: '12px',
-        Padding: '17px 24px',
+        Padding: '17px 63px',
         Color: colors.gray[100],
-        IconSize: 17,
-        LineHeight: spacing.largeS2,
+        IconSize: 18,
+        LineHeight: spacing.largeS,
+        FontWeight: 600,
+        FontSize: spacing.large
       },
       Transparent: {
         Width: '100%',
@@ -100,7 +104,9 @@ export const buttonConfig = {
         Padding: '9px 107px ',
         Color: colors.gray[600],
         IconSize: 14,
-        LineHeight: spacing.large,
+        LineHeight: spacing.largeS,
+        FontWeight: 600,
+        FontSize: spacing.large
       },
       Small: {
         Width: '100%',
@@ -285,3 +291,27 @@ export const paperFontConfig = {
     },
   },
 };
+
+
+export const HomeScreenConfig  = {
+  Utils: {
+    fontFamily: 'Jano-Regular',
+    padding: spacing.large
+  },
+  Title: {
+    fontSize: spacing.title,
+    lineHeight: spacing.largeS2,
+    fontWeight: 400,
+  },
+  Search: {
+    paddingTop: spacing.largeS2,
+    paddingBottom: spacing.subtitle
+  },
+  Ticket: {
+    fontFamily: 'Jano-SemiBold',
+    fontWeight: 600,
+    fontSize: spacing.medium,
+    lineHeight: spacing.largeS2,
+    color: colors.gray[600]
+  }
+}
