@@ -9,6 +9,8 @@ import Input from './src/components/utils/Input';
 import { configureFonts, MD2LightTheme, PaperProvider } from 'react-native-paper';
 import * as Constants from "./src/constants/index";
 import DateToggle from './src/components/utils/DateToggle';
+import HourToggle from './src/components/utils/HourToggle';
+
 
 
 export default function App() {
@@ -40,7 +42,10 @@ export default function App() {
         <Input label={"label"} placeholder={"placeholder"} state={inputText} setState={setInputText}/>
         <MainButton text={"action"} buttonName={"arrow-forward"} />
         <DateToggle headerDateText={"12/10"} mainDateText={"Hoje"} isSelected={isSelected} setIsSelected={setIsSelected}/>
+        <HourToggle hour={"10:00"} parkingAmount={1}/>
+        <HourToggle hour={"13:00"} parkingAmount={3}/>
       </ScrollView>
+
     </PaperProvider>
 
   );
