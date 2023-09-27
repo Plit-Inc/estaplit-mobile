@@ -19,6 +19,8 @@ export default function MainButton({ text, iconName, styleName }) {
       <MainButtonTextStyle
         textColor={buttonStyle.Color}
         lineHeight={buttonStyle.LineHeight}
+        fontSize={buttonStyle.FontSize}
+        fontWeight={buttonStyle.FontWeight}
       >
         {text}
       </MainButtonTextStyle>
