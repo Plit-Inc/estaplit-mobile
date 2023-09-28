@@ -36,6 +36,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 0,
     'react/react-in-jsx-scope': 'off',
     'import/no-named-as-default': 0,
+    'global-require': 0,
     'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': 'off',

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import {Image, TouchableOpacity } from "react-native";
-import Input from "../../components/utils/Input";
-import MainButton from "../../components/utils/MainButton";
+import React, { useState } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import Input from '../../components/utils/Input';
+import MainButton from '../../components/utils/MainButton';
 import {
   InputContainer,
   LogoContainer,
@@ -11,8 +11,8 @@ import {
   TicketHeader,
   Title,
   Text,
-} from "./styles";
-import TicketCard from "../../components/utils/TicketCard";
+} from './style';
+import TicketCard from '../../components/utils/TicketCard';
 
 function HomeScreen() {
   const [inputText, setInputText] = useState('');
@@ -20,7 +20,7 @@ function HomeScreen() {
   return (
     <SafeView>
       <LogoContainer>
-          <Image source={require('../../../assets/estaplit-icon-blue.png')} />
+        <Image source={require('../../../assets/estaplit-icon-blue.png')} />
       </LogoContainer>
       <SearchContainer>
         <Title>Para onde você deseja ir?</Title>
@@ -49,7 +49,7 @@ function HomeScreen() {
         <TicketCard title="Estapar Estacionamentos" />
       </TicketContainer>
     </SafeView>
-  )
+  );
 }
 
 export default HomeScreen;
