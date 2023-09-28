@@ -1,5 +1,5 @@
-import { MainButtonStyle, MainButtonTextStyle } from './style';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { MainButtonStyle, MainButtonTextStyle } from './style';
 import { buttonConfig } from '../../../constants';
 
 export default function MainButton({ text, iconName, styleName }) {

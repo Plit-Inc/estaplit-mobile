@@ -3,14 +3,22 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/javascript',
+  extends: ['airbnb', 'plugin:react/recommended'],
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
   ],
-  plugins: ['react'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
   rules: {
     semi: ['error', 'always'],
     indent: 'off',
@@ -25,6 +33,8 @@ module.exports = {
     'no-console': 'off',
     'unicode-bom': ['error', 'never'],
     'react/no-children-prop': 1,
+    'react/jsx-one-expression-per-line': 0,
+    'react/react-in-jsx-scope': 'off',
     'import/no-named-as-default': 0,
     'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
@@ -45,20 +55,5 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off',
     'no-shadow': 'off',
     'react/jsx-props-no-spreading': ['off'],
-  },
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
   },
 };

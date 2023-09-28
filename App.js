@@ -1,33 +1,32 @@
-import React, { useCallback } from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'expo-status-bar';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
+import { useCallback, useState } from 'react';
 import {
   configureFonts,
   MD2LightTheme,
   PaperProvider,
 } from 'react-native-paper';
-import HomeScreen from "./src/views/home";
-import { colors, fontsLoadedConfig, paperFontConfig } from "./src/constants";
-import * as SplashScreen from "expo-splash-screen";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { View } from "react-native";
+import Input from './src/components/utils/Input';
+import { fontsLoadedConfig } from './src/constants/index.js';
+import MainButton from './src/components/utils/MainButton';
+import * as Constants from './src/constants/index';
+import DateToggle from './src/components/utils/DateToggle';
 
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  const [fontsLoaded, setFontsLoaded] = useFonts(fontsLoadedConfig);
-
-  // const paperTheme = {
-  //   ...MD2LightTheme,
-  //   fonts: configureFonts({config: paperFontConfig, isV3: false}),
-  //   colors: {
-  //     ...MD2LightTheme.colors,
-  //     primary: colors.primary[600],
-  //     secondary: colors.primary[400],
-  //   },
-  // };
+export default function App() {
+  const paperTheme = {
+    ...MD2LightTheme,
+    fonts: configureFonts({ config: Constants.paperFontConfig, isV3: false }),
+    colors: {
+      ...MD2LightTheme.colors,
+      primary: Constants.colors.primary[600],
+      secondary: Constants.colors.primary[400],
+    },
+  };
+  const [fontsLoaded] = useFonts(fontsLoadedConfig);
+  const [inputText, setInputText] = useState('');
+  const [isSelected, setIsSelected] = useState(true);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -35,33 +34,39 @@ function App() {
     }
   }, [fontsLoaded]);
 
-
   if (!fontsLoaded) {
     return null;
   }
-
   return (
-    <SafeAreaProvider>
-        <View onLayout={onLayoutRootView}/>
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-            headerStyle: {
-              backgroundColor: '#FEFEFE',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-          >
-            <Stack.Screen name="Home" component={HomeScreen} options={{
-              headerShown: false,
-            }} />
-          </Stack.Navigator>
-        </NavigationContainer>
-    </SafeAreaProvider>
+    <PaperProvider theme={paperTheme}>
+      <ScrollView
+        contentContainerStyle={{
+          justifyContent: 'center',
+          height: '100%',
+          width: '100%',
+          padding: 20,
+          gap: 10,
+        }}
+        onLayout={onLayoutRootView}
+      >
+        <Input
+          label="label"
+          placeholder="placeholder"
+          state={inputText}
+          setState={setInputText}
+        />
+        <MainButton
+          text="action"
+          iconName="rarrow-forward"
+          styleName="default"
+        />
+        <DateToggle
+          headerDateText="12/10"
+          mainDateText="Hoje"
+          isSelected={isSelected}
+          setIsSelected={setIsSelected}
+        />
+      </ScrollView>
+    </PaperProvider>
   );
 }
-
-export default App;
