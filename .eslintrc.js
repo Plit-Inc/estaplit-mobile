@@ -44,6 +44,8 @@ module.exports = {
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
     'no-unused-vars': 'off',
     'react/jsx-no-undef': 0,
+    'react/no-unstable-nested-components': 'off',
+    'react/no-array-index-key': 'off',
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
       'error',

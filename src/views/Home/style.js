@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { colors, HomeScreenConfig } from "../../constants";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors, HomeScreenConfig } from '../../constants';
 
 export const SafeView = styled(SafeAreaView)`
   background-color: ${colors.gray[100]};
@@ -13,14 +13,12 @@ const BaseContainer = styled.View`
   padding-bottom: ${HomeScreenConfig.Search.paddingBottom};
 `;
 
-export const TicketContainer = styled(BaseContainer)`
-`;
+export const TicketContainer = styled(BaseContainer)``;
 
-export const SearchContainer = styled(BaseContainer)`
-`;
+export const SearchContainer = styled(BaseContainer)``;
 
 export const LogoContainer = styled.View`
-  background-color: #FEFEFE;
+  background-color: #fefefe;
   display: flex;
   align-items: center;
 `;
@@ -45,7 +43,7 @@ export const TicketHeader = styled.View`
 
 export const Text = styled.Text`
   height: 32px;
-  font-family: ${HomeScreenConfig.Ticket.fontFamily};;
+  font-family: ${HomeScreenConfig.Ticket.fontFamily};
   font-size: ${HomeScreenConfig.Ticket.fontSize};
   font-weight: ${HomeScreenConfig.Ticket.fontWeight};
   line-height: 18px;

@@ -4,8 +4,8 @@ export const fontsLoadedConfig = {
   'Jano-Bold': require('../../assets/fonts/Jano-Sans-Pro-Bold.otf'),
   'Jano-Medium': require('../../assets/fonts/Jano-Sans-Pro-Medium.otf'),
   'Jano-Light': require('../../assets/fonts/Jano-Sans-Pro-Light.otf'),
-  'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf')
-}
+  'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf'),
+};
 
 export const fontConfig = {
   Regular: 'Jano-Regular',
@@ -88,12 +88,13 @@ export const buttonConfig = {
         Height: '56px',
         BackgroundColor: colors.primary[500],
         Radius: '12px',
-        Padding: '17px 63px',
+        Padding: '17px 62.5px',
         Color: colors.gray[100],
         IconSize: 18,
         LineHeight: spacing.largeS,
+        JustifyContent: 'center',
         FontWeight: 600,
-        FontSize: spacing.large
+        FontSize: spacing.large,
       },
       Transparent: {
         Width: '100%',
@@ -105,7 +106,7 @@ export const buttonConfig = {
         IconSize: 14,
         LineHeight: spacing.largeS,
         FontWeight: 600,
-        FontSize: spacing.large
+        FontSize: spacing.large,
       },
       Small: {
         Width: '100%',
@@ -291,11 +292,10 @@ export const paperFontConfig = {
   },
 };
 
-
-export const HomeScreenConfig  = {
+export const HomeScreenConfig = {
   Utils: {
     fontFamily: 'Jano-Regular',
-    padding: spacing.large
+    padding: spacing.large,
   },
   Title: {
     fontSize: spacing.title,
@@ -304,13 +304,29 @@ export const HomeScreenConfig  = {
   },
   Search: {
     paddingTop: spacing.largeS2,
-    paddingBottom: spacing.subtitle
+    paddingBottom: spacing.subtitle,
   },
   Ticket: {
     fontFamily: 'Jano-SemiBold',
     fontWeight: 600,
     fontSize: spacing.medium,
     lineHeight: spacing.largeS2,
-    color: colors.gray[600]
-  }
-}
+    color: colors.gray[600],
+  },
+};
+
+export const ParkingListScreenConfig = {
+  Utils: {
+    fontFamily: 'Jano-Regular',
+    padding: '16px',
+    fontWeight: 400,
+    color: colors.gray[500],
+  },
+  Title: {
+    fontSize: spacing.title,
+    lineHeight: spacing.largeS2,
+  },
+  Text: {
+    fontSize: spacing.default,
+  },
+};

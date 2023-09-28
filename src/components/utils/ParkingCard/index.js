@@ -1,8 +1,8 @@
 import React from 'react';
-import { Badges, Element, ParkImageCard, Info, InfoText, Row } from './styles';
-import Badge from '../Badge';
 import { View } from 'react-native';
 import { Clock, MapPinLine, Star, Money } from 'phosphor-react-native';
+import { Badges, Element, ParkImageCard, Info, InfoText, Row } from './styles';
+import Badge from '../Badge';
 import { parkingCardConfig } from '../../../constants/index';
 import Title from '../Title';
 
@@ -14,6 +14,7 @@ function ParkingCard({
   distance,
   hours,
   imagePath,
+  badges,
 }) {
   return (
     <Element>
@@ -60,8 +61,13 @@ function ParkingCard({
           </Info>
         </Row>
         <Badges>
-          <Badge label="Fechado" type="disabled" />
-          <Badge label="Aceita reservas" type="success" />
+          {badges.map((item, index) => (
+            <Badge
+              key={`${item}-${index}`}
+              label={item.label}
+              type={item.type}
+            />
+          ))}
         </Badges>
       </View>
     </Element>

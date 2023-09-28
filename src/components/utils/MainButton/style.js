@@ -7,7 +7,7 @@ export const MainButtonStyle = styled.TouchableOpacity`
   gap: 8px;
   align-items: center;
   align-content: center;
-  justify-content: space-between;
+  justify-content: ${buttonConfig.Default.Primary.Default.JustifyContent};
   background-color: ${(props) => props.backgroundColor};
   padding: ${(props) => props.padding};
   border: ${(props) => (props.border ? props.border : 'transparent')};
