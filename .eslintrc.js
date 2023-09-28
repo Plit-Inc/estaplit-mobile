@@ -43,6 +43,7 @@ module.exports = {
     'no-extra-semi': 'off',
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
     'no-unused-vars': 'off',
+    'react/jsx-no-undef': 0,
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
       'error',

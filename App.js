@@ -1,28 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   configureFonts,
   MD2LightTheme,
   PaperProvider,
 } from 'react-native-paper';
-import Input from './src/components/utils/Input';
-import { fontsLoadedConfig } from './src/constants/index.js';
-import MainButton from './src/components/utils/MainButton';
-import * as Constants from './src/constants/index';
-import DateToggle from './src/components/utils/DateToggle';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  colors,
+  fontsLoadedConfig,
+  paperFontConfig,
+} from './src/constants/index';
 import HomeScreen from './src/views/Home';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+function App() {
   const paperTheme = {
     ...MD2LightTheme,
-    fonts: configureFonts({ config: Constants.paperFontConfig, isV3: false }),
+    fonts: configureFonts({
+      config: paperFontConfig,
+      isV3: false,
+    }),
     colors: {
       ...MD2LightTheme.colors,
-      primary: Constants.colors.primary[600],
-      secondary: Constants.colors.primary[400],
+      primary: colors.primary[600],
+      secondary: colors.primary[400],
     },
   };
   const [fontsLoaded] = useFonts(fontsLoadedConfig);
@@ -40,9 +46,30 @@ export default function App() {
   }
   return (
     <PaperProvider theme={paperTheme}>
-      <ScrollView onLayout={onLayoutRootView}>
-        <HomeScreen />
-      </ScrollView>
+      <View onLayout={onLayoutRootView} />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#FEFEFE',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        >
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
+
+export default App;
