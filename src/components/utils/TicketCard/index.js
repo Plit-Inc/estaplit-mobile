@@ -1,4 +1,5 @@
 import React from 'react';
+import { CalendarBlank, Clock } from 'phosphor-react-native';
 import {
   Container,
   Header,
@@ -10,7 +11,6 @@ import {
 import Badge from '../Badge';
 import { ticketCardConfig } from '../../../constants/index';
 
-import { CalendarBlank, Clock } from 'phosphor-react-native';
 import Title from '../Title';
 import MainButton from '../MainButton';
 

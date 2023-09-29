@@ -46,6 +46,7 @@ module.exports = {
     'react/jsx-no-undef': 0,
     'react/no-unstable-nested-components': 'off',
     'react/no-array-index-key': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
       'error',

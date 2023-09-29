@@ -144,21 +144,25 @@ export const buttonConfig = {
 export const badgedConfig = {
   Utils: {
     fontFamily: 'Jano-SemiBold',
-    FontSize: spacing.default,
     Radius: '32px',
-    Padding: '2px 8px',
   },
   Default: {
     BackgroundColor: colors.primary[100],
     Color: colors.primary[500],
+    Padding: '7px 14px',
+    FontSize: spacing.large,
   },
   Disabled: {
     BackgroundColor: colors.gray[300],
     Color: colors.gray[500],
+    Padding: '2px 8px',
+    FontSize: spacing.default,
   },
   Success: {
     BackgroundColor: colors.success[100],
     Color: colors.success[600],
+    Padding: '2px 8px',
+    FontSize: spacing.default,
   },
 };
 
@@ -176,7 +180,7 @@ export const parkingCardConfig = {
       Title: spacing.large,
     },
     TextColor: colors.gray[600],
-    IconSize: 14,
+    IconSize: 16,
     IconColor: colors.gray[600],
   },
   Default: {
@@ -209,6 +213,33 @@ export const dateToggleConfig = {
 };
 
 export const ticketCardConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold',
+    },
+    padding: spacing.large,
+    BorderRadius: spacing.default,
+    BorderColor: colors.gray[300],
+    FontSize: {
+      Default: spacing.default,
+      Medium: spacing.medium,
+      Large: spacing.large,
+    },
+    IconSize: 15,
+    TextColor: colors.gray[600],
+    FontWeight: 400,
+    IconColor: colors.gray[600],
+    TitleColor: colors.gray[800],
+    Button: {
+      BackgroundColor: colors.gray[100],
+      BorderColor: colors.gray[300],
+      FontWeight: 600,
+    },
+  },
+};
+
+export const parkingCloseByCardConfig = {
   Utils: {
     fontFamily: {
       Regular: 'Jano-Regular',
@@ -298,8 +329,8 @@ export const HomeScreenConfig = {
     padding: spacing.large,
   },
   Title: {
-    fontSize: spacing.title,
-    lineHeight: spacing.largeS2,
+    fontSize: spacing.large,
+    lineHeight: '22px',
     fontWeight: 400,
   },
   Search: {
@@ -328,5 +359,31 @@ export const ParkingListScreenConfig = {
   },
   Text: {
     fontSize: spacing.default,
+  },
+};
+
+export const AutoCompleteConfig = {
+  Utils: {
+    fontFamily: 'Jano-Regular',
+    fontWeight: 400,
+    color: colors.gray[800],
+  },
+  Placeholder: {
+    fontSize: 20,
+    lineHeight: 24,
+  },
+  Text: {
+    color: colors.gray[800],
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  Icon: {
+    color: colors.gray[600],
+    size: 21,
+    selectedColor: colors.primary[500],
+  },
+  RowIcon: {
+    color: colors.gray[600],
+    size: 18,
   },
 };

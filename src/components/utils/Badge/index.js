@@ -17,8 +17,10 @@ function Badge({ label, type }) {
   const style = getStylesByType(type);
 
   return (
-    <Element bgColor={style.BackgroundColor}>
-      <Label textColor={style.Color}>{label}</Label>
+    <Element bgColor={style.BackgroundColor} padding={style.Padding}>
+      <Label textColor={style.Color} fontSize={style.FontSize}>
+        {label}
+      </Label>
     </Element>
   );
 }

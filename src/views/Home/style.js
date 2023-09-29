@@ -10,12 +10,20 @@ export const SafeView = styled(SafeAreaView)`
 
 const BaseContainer = styled.View`
   padding-top: ${HomeScreenConfig.Search.paddingTop};
-  padding-bottom: ${HomeScreenConfig.Search.paddingBottom};
 `;
 
-export const TicketContainer = styled(BaseContainer)``;
+export const TicketContainer = styled(BaseContainer)`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
 
-export const SearchContainer = styled(BaseContainer)``;
+export const CloseParkingsContainer = styled(BaseContainer)``;
+
+export const SearchContainer = styled.View`
+  height: auto;
+  padding-bottom: 24px;
+`;
 
 export const LogoContainer = styled.View`
   background-color: #fefefe;
@@ -26,19 +34,20 @@ export const LogoContainer = styled.View`
 export const Title = styled.Text`
   padding-bottom: ${HomeScreenConfig.Utils.padding};
   font-size: ${HomeScreenConfig.Title.fontSize};
-  font-weight: ${HomeScreenConfig.Title.fontWeight};
   line-height: ${HomeScreenConfig.Title.lineHeight};
-  font-family: ${HomeScreenConfig.Utils.fontFamily};
+  font-family: ${HomeScreenConfig.Ticket.fontFamily};
 `;
 
 export const InputContainer = styled.View`
-  padding-bottom: 24px;
+  padding-top: 32px;
 `;
 
 export const TicketHeader = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
 `;
 
 export const Text = styled.Text`
