@@ -4,8 +4,8 @@ export const fontsLoadedConfig = {
   'Jano-Bold': require('../../assets/fonts/Jano-Sans-Pro-Bold.otf'),
   'Jano-Medium': require('../../assets/fonts/Jano-Sans-Pro-Medium.otf'),
   'Jano-Light': require('../../assets/fonts/Jano-Sans-Pro-Light.otf'),
-  'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf')
-}
+  'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf'),
+};
 
 export const fontConfig = {
   Regular: 'Jano-Regular',
@@ -88,12 +88,13 @@ export const buttonConfig = {
         Height: '56px',
         BackgroundColor: colors.primary[500],
         Radius: '12px',
-        Padding: '17px 63px',
+        Padding: '17px 62.5px',
         Color: colors.gray[100],
         IconSize: 18,
         LineHeight: spacing.largeS,
+        JustifyContent: 'center',
         FontWeight: 600,
-        FontSize: spacing.large
+        FontSize: spacing.large,
       },
       Transparent: {
         Width: '100%',
@@ -105,7 +106,7 @@ export const buttonConfig = {
         IconSize: 14,
         LineHeight: spacing.largeS,
         FontWeight: 600,
-        FontSize: spacing.large
+        FontSize: spacing.large,
       },
       Small: {
         Width: '100%',
@@ -143,21 +144,25 @@ export const buttonConfig = {
 export const badgedConfig = {
   Utils: {
     fontFamily: 'Jano-SemiBold',
-    FontSize: spacing.default,
     Radius: '32px',
-    Padding: '2px 8px',
   },
   Default: {
     BackgroundColor: colors.primary[100],
     Color: colors.primary[500],
+    Padding: '7px 14px',
+    FontSize: spacing.large,
   },
   Disabled: {
     BackgroundColor: colors.gray[300],
     Color: colors.gray[500],
+    Padding: '2px 8px',
+    FontSize: spacing.default,
   },
   Success: {
     BackgroundColor: colors.success[100],
     Color: colors.success[600],
+    Padding: '2px 8px',
+    FontSize: spacing.default,
   },
 };
 
@@ -175,7 +180,7 @@ export const parkingCardConfig = {
       Title: spacing.large,
     },
     TextColor: colors.gray[600],
-    IconSize: 14,
+    IconSize: 16,
     IconColor: colors.gray[600],
   },
   Default: {
@@ -208,6 +213,33 @@ export const dateToggleConfig = {
 };
 
 export const ticketCardConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold',
+    },
+    padding: spacing.large,
+    BorderRadius: spacing.default,
+    BorderColor: colors.gray[300],
+    FontSize: {
+      Default: spacing.default,
+      Medium: spacing.medium,
+      Large: spacing.large,
+    },
+    IconSize: 15,
+    TextColor: colors.gray[600],
+    FontWeight: 400,
+    IconColor: colors.gray[600],
+    TitleColor: colors.gray[800],
+    Button: {
+      BackgroundColor: colors.gray[100],
+      BorderColor: colors.gray[300],
+      FontWeight: 600,
+    },
+  },
+};
+
+export const parkingCloseByCardConfig = {
   Utils: {
     fontFamily: {
       Regular: 'Jano-Regular',
@@ -291,26 +323,67 @@ export const paperFontConfig = {
   },
 };
 
-
-export const HomeScreenConfig  = {
+export const HomeScreenConfig = {
   Utils: {
     fontFamily: 'Jano-Regular',
-    padding: spacing.large
+    padding: spacing.large,
   },
   Title: {
-    fontSize: spacing.title,
-    lineHeight: spacing.largeS2,
+    fontSize: spacing.large,
+    lineHeight: '22px',
     fontWeight: 400,
   },
   Search: {
     paddingTop: spacing.largeS2,
-    paddingBottom: spacing.subtitle
+    paddingBottom: spacing.subtitle,
   },
   Ticket: {
     fontFamily: 'Jano-SemiBold',
     fontWeight: 600,
     fontSize: spacing.medium,
     lineHeight: spacing.largeS2,
-    color: colors.gray[600]
-  }
-}
+    color: colors.gray[600],
+  },
+};
+
+export const ParkingListScreenConfig = {
+  Utils: {
+    fontFamily: 'Jano-Regular',
+    padding: '16px',
+    fontWeight: 400,
+    color: colors.gray[500],
+  },
+  Title: {
+    fontSize: spacing.title,
+    lineHeight: spacing.largeS2,
+  },
+  Text: {
+    fontSize: spacing.default,
+  },
+};
+
+export const AutoCompleteConfig = {
+  Utils: {
+    fontFamily: 'Jano-Regular',
+    fontWeight: 400,
+    color: colors.gray[800],
+  },
+  Placeholder: {
+    fontSize: 20,
+    lineHeight: 24,
+  },
+  Text: {
+    color: colors.gray[800],
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  Icon: {
+    color: colors.gray[600],
+    size: 21,
+    selectedColor: colors.primary[500],
+  },
+  RowIcon: {
+    color: colors.gray[600],
+    size: 18,
+  },
+};

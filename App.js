@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { TouchableWithoutFeedback, View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import React, { useCallback, useState } from 'react';
@@ -9,12 +9,14 @@ import {
 } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   colors,
   fontsLoadedConfig,
   paperFontConfig,
 } from './src/constants/index';
 import HomeScreen from './src/views/Home';
+import ParkingListScreen from './src/views/ParkingList';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +59,7 @@ function App() {
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            headerShadowVisible: false,
           }}
         >
           <Stack.Screen
@@ -65,6 +68,21 @@ function App() {
             options={{
               headerShown: false,
             }}
+          />
+          <Stack.Screen
+            name="ParkingList"
+            component={ParkingListScreen}
+            options={({ navigation }) => ({
+              headerLeft: () => (
+                <TouchableWithoutFeedback onPress={navigation.goBack}>
+                  <Ionicons
+                    name="arrow-back"
+                    size={20}
+                    color={colors.primary[500]}
+                  />
+                </TouchableWithoutFeedback>
+              ),
+            })}
           />
         </Stack.Navigator>
       </NavigationContainer>
