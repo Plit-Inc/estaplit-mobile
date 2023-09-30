@@ -10,6 +10,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
   colors,
   fontsLoadedConfig,
@@ -20,7 +21,6 @@ import HomeScreen from './src/views/Home';
 import ParkingListScreen from './src/views/ParkingList';
 import ReserveParking from './src/views/ReserveParking';
 
-
 import Routes from './src/routes/routes';
 
 const Stack = createNativeStackNavigator();
@@ -30,7 +30,7 @@ function App() {
   const paperTheme = {
     ...MD2LightTheme,
 
-    fonts: configureFonts({config: Constants.paperFontConfig, isV3: false}),
+    fonts: configureFonts({ config: Constants.paperFontConfig, isV3: false }),
     colors: {
       ...MD2LightTheme.colors,
       primary: Constants.colors.primary[600],
@@ -55,11 +55,11 @@ function App() {
     return null;
   }
   return (
-    
     <PaperProvider theme={paperTheme}>
-      <View onLayout={onLayoutRootView} />
-      <Routes/>
-
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <View onLayout={onLayoutRootView} />
+        <Routes />
+      </GestureHandlerRootView>
     </PaperProvider>
   );
 }

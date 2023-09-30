@@ -16,7 +16,7 @@ export const LocationContainer = styled.View`
   padding-right: ${ParkingListScreenConfig.Utils.padding};
 `;
 
-export const Title = styled.Text`
+export const ParkingListTitle = styled.Text`
   font-family: ${ParkingListScreenConfig.Utils.fontFamily};
   font-size: ${ParkingListScreenConfig.Title.fontSize};
   font-weight: ${ParkingListScreenConfig.Utils.fontWeight};
