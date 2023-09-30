@@ -22,11 +22,12 @@ function AutoCompleteInput() {
   const [inputText, setInputText] = useState('');
 
   const [selectedLocation, setSelectedLocation] = useState('');
+
   const [locateIconColor, setLocateIconColor] = useState(
     AutoCompleteConfig.Icon.color,
   );
-  const [hasTextInput, setHasTextInput] = useState(false);
 
+  const [hasTextInput, setHasTextInput] = useState(false);
   const containerHeight = hasTextInput ? 300 : 70;
 
   const styles = StyleSheet.create({
@@ -54,6 +55,7 @@ function AutoCompleteInput() {
         setLocateIconColor(AutoCompleteConfig.Icon.color);
         setShowCurrentAddress(false);
         setInputText('');
+        // setCurrentLocation('');
         return;
       }
       const { latitude, longitude } = currentLocation;
@@ -61,8 +63,7 @@ function AutoCompleteInput() {
       setLocateIconColor(AutoCompleteConfig.Icon.selectedColor);
 
       try {
-        const address = await getAddressFromCoords(latitude, longitude);
-        setInputText(address);
+        await getAddressFromCoords(latitude, longitude);
       } catch (error) {
         console.error('Error getting address:', error);
       }
@@ -78,9 +79,11 @@ function AutoCompleteInput() {
       );
 
       if (response.data?.results) {
+        console.log('response', response);
         const address = response.data.results[0].formatted_address;
         setCurrentAddress(address);
         setInputText(address);
+        console.log(address);
       }
     } catch (error) {
       console.error('Erro ao buscar endereço:', error);
@@ -155,7 +158,11 @@ function AutoCompleteInput() {
         textInputProps={{
           InputComp: TextInput,
           value: inputText,
-          onChangeText: setInputText,
+          onChangeText: (value) => {
+            if (!currentLocation) {
+              setInputText(value);
+            }
+          },
           onBlur: () => {
             setHasTextInput(false);
           },

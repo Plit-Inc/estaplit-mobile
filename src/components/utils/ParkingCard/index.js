@@ -21,14 +21,16 @@ function ParkingCard({
     <Element>
       <ParkImageCard source={{ uri: imagePath }} />
       <View>
-        <Title
-          text={title}
-          color={
-            isOpen
-              ? parkingCardConfig.Default.TitleColor
-              : parkingCardConfig.Disabled.TitleColor
-          }
-        />
+        <View style={{ paddingBottom: 8 }}>
+          <Title
+            text={title}
+            color={
+              isOpen
+                ? parkingCardConfig.Default.TitleColor
+                : parkingCardConfig.Disabled.TitleColor
+            }
+          />
+        </View>
         <Row>
           <Info 
             text={`${distance} do seu destino`} 
@@ -62,13 +64,15 @@ function ParkingCard({
           />
         </Row>
         <Badges>
-          {badges.map((item, index) => (
-            <Badge
-              key={`${item}-${index}`}
-              label={item.label}
-              type={item.type}
-            />
-          ))}
+          {badges
+            ? badges.map((item, index) => (
+                <Badge
+                  key={`${item}-${index}`}
+                  label={item.label}
+                  type={item.type}
+                />
+              ))
+            : null}
         </Badges>
       </View>
     </Element>

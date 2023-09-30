@@ -1,11 +1,23 @@
 import { TextInput } from 'react-native-paper';
 import { colors } from '../../../constants';
 
-export default function Input({ label, placeholder, state, setState }) {
+export default function Input({
+  label,
+  placeholder,
+  fontSize,
+  textColor,
+  state,
+  setState,
+}) {
   return (
     <TextInput
       mode="flat"
-      style={{ backgroundColor: 'white' }}
+      style={{ backgroundColor: 'white', fontSize, marginBottom: 0 }}
+      theme={{
+        colors: {
+          text: textColor,
+        },
+      }}
       placeholder={placeholder}
       label={label}
       value={state}

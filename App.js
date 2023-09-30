@@ -46,7 +46,7 @@ function App() {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-  
+
   if (!fontsLoaded) {
     return null;
   }

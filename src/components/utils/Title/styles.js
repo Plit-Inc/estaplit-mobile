@@ -6,4 +6,5 @@ export const TitleStyle = styled.Text`
   font-weight: ${titleConfig.FontWeight};
   font-size: ${titleConfig.FontSize};
   color: ${(props) => props.titleColor};
+  line-height: 24px;
 `;

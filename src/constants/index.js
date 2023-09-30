@@ -213,6 +213,26 @@ export const dateToggleConfig = {
   },
 };
 
+export const filterCardConfig = {
+  Utils: {
+    mainTextFont: 'Jano-Bold',
+    mainTextFontSize: '14px',
+    headerTextFont: 'Jano-Regular',
+    headerTextFontSize: '12px',
+    borderRadius: '12px',
+    border: `1px solid ${colors.gray[300]}`,
+    padding: '14px 16px 14px 16px',
+  },
+  Default: {
+    backgroundColor: colors.gray[100],
+    color: colors.gray[600],
+  },
+  Ontouch: {
+    backgroundColor: colors.primary[100],
+    color: colors.primary[500],
+  },
+};
+
 export const ticketCardConfig = {
   Utils: {
     fontFamily: {
@@ -400,7 +420,6 @@ export const parkingDetailConfig = {
     FontSize: {
       Default: spacing.default,
       Medium: spacing.medium,
-      Default: spacing.default,
       Large: spacing.large,
       Title: spacing.title,
       BigTitle: spacing.largeS2,
