@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import BottomSheet from '@gorhom/bottom-sheet';
+// import BottomSheet from '@gorhom/bottom-sheet';
 import { FilterCardStyle } from './style';
 import Title from '../Title';
 import { colors } from '../../../constants';

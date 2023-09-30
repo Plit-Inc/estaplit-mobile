@@ -5,7 +5,7 @@ import Input from '../../components/utils/Input';
 import ParkingCard from '../../components/utils/ParkingCard';
 import DateToggle from '../../components/utils/DateToggle';
 import { colors } from '../../constants';
-import FilterCard from '../../components/utils/FilterCard';
+// import FilterCard from '../../components/utils/FilterCard';
 
 function ParkingListScreen() {
   const options = [

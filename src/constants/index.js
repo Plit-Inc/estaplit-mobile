@@ -420,7 +420,6 @@ export const parkingDetailConfig = {
     FontSize: {
       Default: spacing.default,
       Medium: spacing.medium,
-      Default: spacing.default,
       Large: spacing.large,
       Title: spacing.title,
       BigTitle: spacing.largeS2,
