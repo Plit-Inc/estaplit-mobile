@@ -25,6 +25,9 @@ export const Title = styled.Text`
 `;
 
 export const Info = styled.Text`
+  padding-left: ${ParkingListScreenConfig.Utils.padding};
+  padding-right: ${ParkingListScreenConfig.Utils.padding};
+  padding-top: 12px;
   font-family: ${ParkingListScreenConfig.Utils.fontFamily};
   color: ${ParkingListScreenConfig.Utils.color};
   font-weight: ${ParkingListScreenConfig.Utils.fontWeight};

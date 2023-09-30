@@ -45,6 +45,7 @@ export const colors = {
     500: '#98A2B3',
     600: '#667085',
     800: '#1D2939',
+    1000: '#000000',
   },
   error: {
     100: '#FEF3F2',
@@ -88,7 +89,7 @@ export const buttonConfig = {
         Height: '56px',
         BackgroundColor: colors.primary[500],
         Radius: '12px',
-        Padding: '17px 62.5px',
+        Padding: '16px 20px',
         Color: colors.gray[100],
         IconSize: 18,
         LineHeight: spacing.largeS,
@@ -101,7 +102,7 @@ export const buttonConfig = {
         BackgroundColor: colors.gray[100],
         Border: `1px solid ${colors.gray[300]}`,
         Radius: '8px',
-        Padding: '9px 107px ',
+        Padding: '16px 20px',
         Color: colors.gray[600],
         IconSize: 14,
         LineHeight: spacing.largeS,
@@ -204,6 +205,26 @@ export const dateToggleConfig = {
   },
   Default: {
     backgroundColor: colors.gray[0],
+    color: colors.gray[600],
+  },
+  Ontouch: {
+    backgroundColor: colors.primary[100],
+    color: colors.primary[500],
+  },
+};
+
+export const filterCardConfig = {
+  Utils: {
+    mainTextFont: 'Jano-Bold',
+    mainTextFontSize: '14px',
+    headerTextFont: 'Jano-Regular',
+    headerTextFontSize: '12px',
+    borderRadius: '12px',
+    border: `1px solid ${colors.gray[300]}`,
+    padding: '14px 16px 14px 16px',
+  },
+  Default: {
+    backgroundColor: colors.gray[100],
     color: colors.gray[600],
   },
   Ontouch: {
@@ -385,5 +406,29 @@ export const AutoCompleteConfig = {
   RowIcon: {
     color: colors.gray[600],
     size: 18,
+  },
+};
+
+export const parkingDetailConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold',
+      Bold: 'Jano-Bold',
+      Medium: 'Jano-Medium',
+    },
+    FontSize: {
+      Default: spacing.default,
+      Medium: spacing.medium,
+      Large: spacing.large,
+      Title: spacing.title,
+      BigTitle: spacing.largeS2,
+    },
+    TextColor: colors.gray[600],
+    IconSize: 18,
+    IconColor: colors.gray[600],
+    borderColor: colors.gray[400],
+    borderWidth: '1px',
+
   },
 };

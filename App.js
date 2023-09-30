@@ -1,7 +1,7 @@
 import { TouchableWithoutFeedback, View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   configureFonts,
   MD2LightTheme,
@@ -9,36 +9,41 @@ import {
 } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Ionicons from '@expo/vector-icons/Ionicons';
+
 import {
   colors,
   fontsLoadedConfig,
   paperFontConfig,
 } from './src/constants/index';
+import * as Constants from './src/constants/index';
 import HomeScreen from './src/views/Home';
 import ParkingListScreen from './src/views/ParkingList';
 import ReserveParking from './src/views/ReserveParking';
 import { GlobalContextProvider } from './src/Context/index';
 
+import Routes from './src/routes/routes';
+
 const Stack = createNativeStackNavigator();
 
 function App() {
+  const [fontsLoaded] = useFonts(fontsLoadedConfig);
   const paperTheme = {
     ...MD2LightTheme,
-    fonts: configureFonts({
-      config: paperFontConfig,
-      isV3: false,
-      
-    }),
+
+    fonts: configureFonts({config: Constants.paperFontConfig, isV3: false}),
     colors: {
       ...MD2LightTheme.colors,
-      primary: colors.primary[600],
-      secondary: colors.primary[400],
+      primary: Constants.colors.primary[600],
+      secondary: Constants.colors.primary[400],
     },
   };
-  const [fontsLoaded] = useFonts(fontsLoadedConfig);
-  const [inputText, setInputText] = useState('');
-  const [isSelected, setIsSelected] = useState(true);
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    prepare();
+  }, []);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -53,61 +58,7 @@ function App() {
     
     <PaperProvider theme={paperTheme}>
       <View onLayout={onLayoutRootView} />
-      <GlobalContextProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: '#FEFEFE',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            headerShadowVisible: false,
-          }}
-        >
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="ReserveParking"
-            component={ReserveParking}
-            options={({ navigation }) => ({
-              headerLeft: () => (
-                <TouchableWithoutFeedback onPress={navigation.goBack}>
-                  <Ionicons
-                    name="arrow-back"
-                    size={20}
-                    color={colors.primary[500]}
-                  />
-                </TouchableWithoutFeedback>
-              ),
-            })}
-          />
-          <Stack.Screen
-            name="ParkingList"
-            component={ParkingListScreen}
-            options={({ navigation }) => ({
-              headerLeft: () => (
-                <TouchableWithoutFeedback onPress={navigation.goBack}>
-                  <Ionicons
-                    name="arrow-back"
-                    size={20}
-                    color={colors.primary[500]}
-                  />
-                </TouchableWithoutFeedback>
-              ),
-            })}
-          />
-        </Stack.Navigator>
-        
-      </NavigationContainer>
-    </GlobalContextProvider>
+      <Routes/>
 
     </PaperProvider>
   );

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Clock, MapPinLine, Star, Money } from 'phosphor-react-native';
-import { Badges, Element, ParkImageCard, Info, InfoText, Row } from './styles';
+import { Badges, Element, ParkImageCard, Row } from './styles';
 import Badge from '../Badge';
 import { parkingCardConfig } from '../../../constants/index';
 import Title from '../Title';
+import Info from '../Info';
 
 function ParkingCard({
   isOpen,
@@ -20,54 +21,58 @@ function ParkingCard({
     <Element>
       <ParkImageCard source={{ uri: imagePath }} />
       <View>
-        <Title
-          text={title}
-          color={
-            isOpen
-              ? parkingCardConfig.Default.TitleColor
-              : parkingCardConfig.Disabled.TitleColor
-          }
-        />
+        <View style={{ paddingBottom: 8 }}>
+          <Title
+            text={title}
+            color={
+              isOpen
+                ? parkingCardConfig.Default.TitleColor
+                : parkingCardConfig.Disabled.TitleColor
+            }
+          />
+        </View>
         <Row>
-          <Info>
-            <MapPinLine
+          <Info 
+            text={`${distance} do seu destino`} 
+            IconComponent={ () => <MapPinLine
               size={parkingCardConfig.Utils.IconSize}
               color={parkingCardConfig.Utils.IconColor}
-            />
-            <InfoText>{distance} do seu destino</InfoText>
-          </Info>
-          <Info>
-            <Star
+            />}
+          />
+          <Info 
+            text={`${review}`} 
+            IconComponent={ () => <Star
               size={parkingCardConfig.Utils.IconSize}
               color={parkingCardConfig.Utils.IconColor}
-            />
-            <InfoText>{review}</InfoText>
-          </Info>
+            />}
+          />
         </Row>
         <Row>
-          <Info>
-            <Money
+          <Info 
+            text={`A partir de ${price}`} 
+            IconComponent={ () => <Money
               size={parkingCardConfig.Utils.IconSize}
               color={parkingCardConfig.Utils.IconColor}
-            />
-            <InfoText>A partir de {price}</InfoText>
-          </Info>
-          <Info>
-            <Clock
+            />}
+          />
+          <Info 
+            text={`${hours}`} 
+            IconComponent={ () => <Clock
               size={parkingCardConfig.Utils.IconSize}
               color={parkingCardConfig.Utils.IconColor}
-            />
-            <InfoText>{hours}</InfoText>
-          </Info>
+            />}
+          />
         </Row>
         <Badges>
-          {badges.map((item, index) => (
-            <Badge
-              key={`${item}-${index}`}
-              label={item.label}
-              type={item.type}
-            />
-          ))}
+          {badges
+            ? badges.map((item, index) => (
+                <Badge
+                  key={`${item}-${index}`}
+                  label={item.label}
+                  type={item.type}
+                />
+              ))
+            : null}
         </Badges>
       </View>
     </Element>

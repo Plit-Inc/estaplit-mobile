@@ -9,13 +9,36 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0519D0"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "comgooglemaps",
+          "citymapper",
+          "uber",
+          "lyft",
+          "transit",
+          "truckmap",
+          "waze",
+          "yandexnavi",
+          "moovit",
+          "yandextaxi",
+          "yandexmaps",
+          "kakaomap",
+          "szn-mapy",
+          "mapsme",
+          "osmandmaps",
+          "gett",
+          "nmap",
+          "dgis",
+          "lftgpas"
+        ]
+     }
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +48,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": ["./src/plugins/android-manifest.plugin.js"]
   }
 }
