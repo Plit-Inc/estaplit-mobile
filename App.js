@@ -77,7 +77,7 @@ function App() {
                 <TouchableWithoutFeedback onPress={navigation.goBack}>
                   <Ionicons
                     name="arrow-back"
-                    size={20}
+                    size={24}
                     color={colors.primary[500]}
                   />
                 </TouchableWithoutFeedback>

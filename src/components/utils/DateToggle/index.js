@@ -16,12 +16,16 @@ export default function DateToggle({
       isSelected={isSelected}
       onPress={() => setIsSelected(!isSelected)}
     >
-      <HeaderDateTextStyle isSelected={isSelected}>
-        {headerDateText}
-      </HeaderDateTextStyle>
-      <MainDateTextStyle isSelected={isSelected}>
-        {mainDateText}
-      </MainDateTextStyle>
+      {headerDateText ? (
+        <HeaderDateTextStyle isSelected={isSelected}>
+          {headerDateText}
+        </HeaderDateTextStyle>
+      ) : null}
+      {mainDateText ? (
+        <MainDateTextStyle isSelected={isSelected}>
+          {mainDateText}
+        </MainDateTextStyle>
+      ) : null}
     </DateToggleStyle>
   );
 }

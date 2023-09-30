@@ -85,10 +85,10 @@ function HomeScreen({ navigation }) {
             </TicketHeader>
             <TicketCard title="Estapar Estacionamentos" />
           </TicketContainer>
-          {/* <Button */}
-          {/*  title="Go to ParkingList" */}
-          {/*  onPress={() => navigation.navigate('ParkingList')} */}
-          {/* /> */}
+          <Button
+            title="Go to ParkingList"
+            onPress={() => navigation.navigate('ParkingList')}
+          />
         </ScrollView>
       </SafeView>
     </>
