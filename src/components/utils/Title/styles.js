@@ -7,4 +7,5 @@ export const TitleStyle = styled.Text`
   font-size: ${titleConfig.FontSize};
   color: ${(props) => props.titleColor};
   line-height: 24px;
+  flex-wrap: wrap;
 `;
