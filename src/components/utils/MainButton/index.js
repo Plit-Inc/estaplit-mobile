@@ -2,7 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { MainButtonStyle, MainButtonTextStyle } from './style';
 import { buttonConfig } from '../../../constants';
 
-export default function MainButton({ text, iconName, styleName }) {
+export default function MainButton({ text, iconName, styleName, ...props }) {
   const styles = {
     default: buttonConfig.Default.Primary.Default,
     transparent: buttonConfig.Default.Primary.Transparent,
@@ -12,6 +12,7 @@ export default function MainButton({ text, iconName, styleName }) {
 
   return (
     <MainButtonStyle
+      {...props}
       backgroundColor={buttonStyle.BackgroundColor}
       border={buttonStyle.Border}
       padding={buttonStyle.Padding}
