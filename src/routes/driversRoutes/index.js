@@ -1,10 +1,10 @@
-import { Linking, TouchableWithoutFeedback } from 'react-native';
+import { Image, Linking, TouchableWithoutFeedback } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
 import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
-import { colors } from '../../constants/index';
+import { colors, logosConfig } from '../../constants/index';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -14,7 +14,13 @@ export default function DriversRoutes() {
         name="Home"
         component={HomeScreen}
         options={{
-          headerShown: false,
+          headerTitleAlign: 'center',
+          headerTitle: () => (
+            <Image
+              source={logosConfig.EstaplitBlue}
+              style={{ width: 124, height: 40 }}
+            />
+          ),
         }}
       />
       <Stack.Screen

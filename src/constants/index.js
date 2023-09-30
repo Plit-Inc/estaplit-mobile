@@ -7,6 +7,12 @@ export const fontsLoadedConfig = {
   'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf'),
 };
 
+export const logosConfig = {
+  Estaplit: require('../../assets/estaplit-logo.png'),
+  EstaplitBlue: require('../../assets/estaplit-icon-blue.png'),
+  EstaplitSpot: require('../../assets/estaplit-spot-icon.png'),
+};
+
 export const fontConfig = {
   Regular: 'Jano-Regular',
   SemiBold: 'Jano-SemiBold',
@@ -429,6 +435,5 @@ export const parkingDetailConfig = {
     IconColor: colors.gray[600],
     borderColor: colors.gray[400],
     borderWidth: '1px',
-
   },
 };
