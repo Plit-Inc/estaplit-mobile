@@ -26,6 +26,7 @@ function App() {
     fonts: configureFonts({
       config: paperFontConfig,
       isV3: false,
+      
     }),
     colors: {
       ...MD2LightTheme.colors,
