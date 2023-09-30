@@ -45,7 +45,6 @@ function HomeScreen({ navigation }) {
             source={require('../../../assets/estaplit-icon-blue.png')}
           />
         </LogoContainer>
-
         <InputContainer>
           <Title>Para onde você deseja ir?</Title>
         </InputContainer>

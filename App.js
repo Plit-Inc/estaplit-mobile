@@ -18,6 +18,9 @@ import {
 import * as Constants from './src/constants/index';
 import HomeScreen from './src/views/Home';
 import ParkingListScreen from './src/views/ParkingList';
+import ReserveParking from './src/views/ReserveParking';
+import { GlobalContextProvider } from './src/Context/index';
+
 import Routes from './src/routes/routes';
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +29,7 @@ function App() {
   const [fontsLoaded] = useFonts(fontsLoadedConfig);
   const paperTheme = {
     ...MD2LightTheme,
+
     fonts: configureFonts({config: Constants.paperFontConfig, isV3: false}),
     colors: {
       ...MD2LightTheme.colors,
@@ -51,9 +55,11 @@ function App() {
     return null;
   }
   return (
+    
     <PaperProvider theme={paperTheme}>
       <View onLayout={onLayoutRootView} />
       <Routes/>
+
     </PaperProvider>
   );
 }
