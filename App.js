@@ -17,6 +17,8 @@ import {
 } from './src/constants/index';
 import HomeScreen from './src/views/Home';
 import ParkingListScreen from './src/views/ParkingList';
+import ReserveParking from './src/views/ReserveParking';
+import { GlobalContextProvider } from './src/Context/index';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,8 +50,10 @@ function App() {
     return null;
   }
   return (
+    
     <PaperProvider theme={paperTheme}>
       <View onLayout={onLayoutRootView} />
+      <GlobalContextProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -71,6 +75,21 @@ function App() {
             }}
           />
           <Stack.Screen
+            name="ReserveParking"
+            component={ReserveParking}
+            options={({ navigation }) => ({
+              headerLeft: () => (
+                <TouchableWithoutFeedback onPress={navigation.goBack}>
+                  <Ionicons
+                    name="arrow-back"
+                    size={20}
+                    color={colors.primary[500]}
+                  />
+                </TouchableWithoutFeedback>
+              ),
+            })}
+          />
+          <Stack.Screen
             name="ParkingList"
             component={ParkingListScreen}
             options={({ navigation }) => ({
@@ -86,7 +105,10 @@ function App() {
             })}
           />
         </Stack.Navigator>
+        
       </NavigationContainer>
+    </GlobalContextProvider>
+
     </PaperProvider>
   );
 }
