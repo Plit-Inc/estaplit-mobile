@@ -51,7 +51,7 @@ function ParkingListScreen() {
           height: 70,
         }}
       >
-        <FilterCard icon selected={allFilters} callback={setAllFilters} />
+        {/* <FilterCard icon selected={allFilters} callback={setAllFilters} />
         <FilterCard
           title="Aceita reservas"
           selected={acceptsReservation}
@@ -66,7 +66,7 @@ function ParkingListScreen() {
           title="Pagamento online"
           selected={onlinePayment}
           callback={setOnlinePayment}
-        />
+        /> */}
       </ScrollView>
       <Info>3 estacionamentos encontrados</Info>
       <ScrollView alwaysBounceVertical showsVerticalScrollIndicator={false}>

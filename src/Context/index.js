@@ -2,10 +2,10 @@
 import React, { useState,createContext,useContext, useEffect } from 'react';
 
 
-export const GlobalContext = createContext();
+export const DriverContext = createContext();
 
 
-export const GlobalContextProvider = ({ children }) => {
+export const DriverContextProvider = ({ children }) => {
     //aqui vai o componente do estacionamento selecionado 
     const [ selectedParking, setSelectedParking ] = useState(null);
     const [ scheduling, setScheduling ] = useState({
@@ -22,10 +22,10 @@ export const GlobalContextProvider = ({ children }) => {
         car: ""
     });
   return (
-    <GlobalContext.Provider value={{  selectedParking, setSelectedParking, scheduling, setScheduling, userInformation, setUserInformation}}>
+    <DriverContext.Provider value={{  selectedParking, setSelectedParking, scheduling, setScheduling, userInformation, setUserInformation}}>
       {children}
-    </GlobalContext.Provider>
+    </DriverContext.Provider>
   );
 };
 
-export const useGlobalContext = () => useContext(GlobalContext);
+export const useDriverContext = () => useContext(DriverContext);

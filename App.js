@@ -19,7 +19,7 @@ import * as Constants from './src/constants/index';
 import HomeScreen from './src/views/Home';
 import ParkingListScreen from './src/views/ParkingList';
 import ReserveParking from './src/views/ReserveParking';
-import { GlobalContextProvider } from './src/Context/index';
+
 
 import Routes from './src/routes/routes';
 
