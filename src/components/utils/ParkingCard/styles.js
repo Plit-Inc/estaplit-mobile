@@ -17,20 +17,6 @@ export const ParkImageCard = styled.Image`
   border-radius: ${Constants.parkingCardConfig.Utils.BorderRadius};
 `;
 
-export const Info = styled.View`
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-items: center;
-`;
-
-export const InfoText = styled.Text`
-  font-family: ${Constants.parkingCardConfig.Utils.fontFamily.Regular};
-  color: ${Constants.parkingCardConfig.Utils.TextColor};
-  font-size: ${Constants.parkingCardConfig.Utils.FontSize.Default};
-  line-height: 16px;
-`;
-
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
