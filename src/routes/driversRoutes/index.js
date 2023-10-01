@@ -8,6 +8,7 @@ import { colors } from '../../constants/index';
 import ScheduleParkingInfo from "../../views/ScheduleParkingInfo";
 import HeaderTitle from "../../components/utils/HeaderTitle";
 import ScheduleParkingContactValidation from "../../views/ScheduleParkingContactValidation";
+import CancelSchedule from "../../views/CancelSchedule";
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -22,7 +23,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ScheduleParkingContactValidation" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="CancelSchedule" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -105,6 +106,23 @@ export default function DriversRoutes() {
                 ),
                 headerTitle: () => (
                     <HeaderTitle text={"Valide o seu celular"}/>
+                ),
+            })}/>
+        <Stack.Screen
+            name="CancelSchedule"
+            component={CancelSchedule}
+            options={({ navigation }) => ({
+                headerLeft: () => (
+                    <TouchableWithoutFeedback onPress={navigation.goBack}>
+                        <Ionicons
+                            name="arrow-back"
+                            size={20}
+                            color={colors.error[600]}
+                        />
+                    </TouchableWithoutFeedback>
+                ),
+                headerTitle: () => (
+                    <HeaderTitle text={"Cancelar reserva"} style={{color: colors.error["600"]}}/>
                 ),
             })}/>
     </Stack.Navigator>

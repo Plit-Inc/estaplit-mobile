@@ -1,7 +1,7 @@
 import {HeaderTitleStyle} from "./style";
 
-export default function HeaderTitle({ text }) {
+export default function HeaderTitle({ text, ...props }) {
     return (
-        <HeaderTitleStyle>{text}</HeaderTitleStyle>
+        <HeaderTitleStyle {...props}>{text}</HeaderTitleStyle>
     )
 }
