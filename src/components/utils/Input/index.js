@@ -8,6 +8,7 @@ export default function Input({
   textColor,
   state,
   setState,
+  withIcon,
 }) {
   const clearInput = () => {
     setState('');
@@ -26,12 +27,14 @@ export default function Input({
       value={state}
       onChangeText={(text) => setState(text)}
       right={
-        <TextInput.Icon
-          icon="close"
-          size={15}
-          color={colors.gray[600]}
-          onPress={clearInput}
-        />
+        withIcon ? (
+          <TextInput.Icon
+            icon="close"
+            size={15}
+            color={colors.gray[600]}
+            onPress={clearInput}
+          />
+        ) : null
       }
     />
   );

@@ -7,6 +7,14 @@ export const fontsLoadedConfig = {
   'Jano-Thin': require('../../assets/fonts/Jano-Sans-Pro-Thin.otf'),
 };
 
+export const imagesConfig = {
+  Estaplit: require('../../assets/estaplit-logo.png'),
+  EstaplitBlue: require('../../assets/estaplit-icon-blue.png'),
+  EstaplitSpot: require('../../assets/estaplit-spot-icon.png'),
+  LinearBackground: require('../../assets/background.png'),
+  Calendar: require('../../assets/calendar.png'),
+};
+
 export const fontConfig = {
   Regular: 'Jano-Regular',
   SemiBold: 'Jano-SemiBold',
@@ -91,6 +99,19 @@ export const buttonConfig = {
         Radius: '12px',
         Padding: '16px 20px',
         Color: colors.gray[100],
+        IconSize: 18,
+        LineHeight: spacing.largeS,
+        JustifyContent: 'center',
+        FontWeight: 600,
+        FontSize: spacing.large,
+      },
+      White: {
+        Width: '100%',
+        Height: '56px',
+        BackgroundColor: colors.gray[100],
+        Radius: '12px',
+        Padding: '16px 20px',
+        Color: colors.primary[500],
         IconSize: 18,
         LineHeight: spacing.largeS,
         JustifyContent: 'center',
@@ -429,6 +450,20 @@ export const parkingDetailConfig = {
     IconColor: colors.gray[600],
     borderColor: colors.gray[400],
     borderWidth: '1px',
+  },
+};
 
+export const successScreenConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+    },
+    FontSize: '20px',
+    TextColor: colors.gray[100],
+    IconSize: 18,
+  },
+  ReservationCard: {
+    BackgroundColor: colors.primary[600],
+    BorderRadius: spacing.default,
   },
 };

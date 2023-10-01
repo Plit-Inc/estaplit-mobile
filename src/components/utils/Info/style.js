@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import * as Constants from '../../../constants/index';
 
 export const InfoStyle = styled.View`
@@ -10,7 +10,7 @@ export const InfoStyle = styled.View`
 
 export const InfoTextStyle = styled.Text`
   font-family: ${Constants.parkingCardConfig.Utils.fontFamily.Regular};
-  color: ${Constants.parkingCardConfig.Utils.TextColor};
+  color: ${(props) => props.textColor};
   font-size: ${Constants.parkingCardConfig.Utils.FontSize.Default};
   line-height: 16px;
 `;

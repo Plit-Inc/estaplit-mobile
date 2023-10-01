@@ -48,6 +48,7 @@ function ParkingListScreen() {
               setState={setInputText}
               fontSize={26}
               textColor={colors.primary[500]}
+              withIcon
             />
           </View>
         </LocationContainer>

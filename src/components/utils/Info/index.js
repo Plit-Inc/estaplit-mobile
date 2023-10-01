@@ -1,10 +1,10 @@
 import { InfoStyle, InfoTextStyle } from './style';
 
-export default function Info({ text, IconComponent }) {
+export default function Info({ text, textColor, IconComponent }) {
   return (
     <InfoStyle>
       <IconComponent />
-      <InfoTextStyle>{text}</InfoTextStyle>
+      <InfoTextStyle textColor={textColor}>{text}</InfoTextStyle>
     </InfoStyle>
   );
 }
