@@ -1,4 +1,4 @@
-import { Linking, TouchableWithoutFeedback } from 'react-native';
+import { Linking, Share, TouchableWithoutFeedback } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
@@ -8,8 +8,18 @@ import { colors } from '../../constants/index';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  };
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="ParkingDetail" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -46,11 +56,7 @@ export default function DriversRoutes() {
             </TouchableWithoutFeedback>
           ),
           headerRight: () => (
-            <TouchableWithoutFeedback
-              onPress={() => {
-                Linking.openURL('whatsapp://send?text=MESSAGE!');
-              }}
-            >
+            <TouchableWithoutFeedback onPress={() => {onShare()}}>
               <Ionicons
                 name="share-outline"
                 size={20}

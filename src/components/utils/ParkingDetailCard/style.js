@@ -35,6 +35,7 @@ export const Subtitle = styled.Text`
     font-family: ${Constants.parkingDetailConfig.Utils.fontFamily.Medium};;
     text-transform: uppercase;
     color: ${Constants.colors.gray[500]};
+    text-align: center;
 `
 
 export const TitleAndIconView = styled.View`
