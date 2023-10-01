@@ -83,6 +83,10 @@ function HomeScreen({ navigation }) {
           <TicketCard title="Estapar Estacionamentos" />
         </TicketContainer>
         <Button
+          title="Go to ReserveParking"
+          onPress={() => navigation.navigate('ReserveParking')}
+        />
+        <Button
           title="Go to ParkingList"
           onPress={() => navigation.navigate('ParkingList')}
         />

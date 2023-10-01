@@ -1,21 +1,19 @@
 import React from 'react';
 import {
-  DateToggleStyle,
+    DateToggleSelectedStyle,
   HeaderDateTextStyle,
   MainDateTextStyle,
 } from './style';
 
-export default function DateToggle({
+export default function DateToggleSelect({
   headerDateText,
   mainDateText,
   isSelected,
-  setIsSelected,
 }) {
-  console.log(isSelected)
+
   return (
-    <DateToggleStyle
+    <DateToggleSelectedStyle
       isSelected={isSelected}
-      onPress={() => setIsSelected(!isSelected)}
     >
       {headerDateText ? (
         <HeaderDateTextStyle isSelected={isSelected}>
@@ -27,6 +25,6 @@ export default function DateToggle({
           {mainDateText}
         </MainDateTextStyle>
       ) : null}
-    </DateToggleStyle>
+    </DateToggleSelectedStyle>
   );
 }

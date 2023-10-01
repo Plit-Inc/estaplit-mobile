@@ -4,12 +4,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
 import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
+import ReserveParking from '../../views/ReserveParking';
 import { colors } from '../../constants/index';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="ReserveParking" screenOptions={ReserveParking}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -20,6 +21,21 @@ export default function DriversRoutes() {
       <Stack.Screen
         name="ParkingList"
         component={ParkingListScreen}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ReserveParking"
+        component={ReserveParking}
         options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableWithoutFeedback onPress={navigation.goBack}>

@@ -9,8 +9,8 @@ export const DriverContextProvider = ({ children }) => {
     //aqui vai o componente do estacionamento selecionado 
     const [ selectedParking, setSelectedParking ] = useState(null);
     const [ scheduling, setScheduling ] = useState({
-        date: "13/05/23",
-        hour: "14:00",
+        date: "",
+        hour: "",
         warning: "Você tem 15 minutos para chegar ao estacionamento",
         location: "Rua do Futuro, 123",
         bookingStatus: "Reservado",
@@ -21,6 +21,8 @@ export const DriverContextProvider = ({ children }) => {
         tel: "",
         car: ""
     });
+
+    
   return (
     <DriverContext.Provider value={{  selectedParking, setSelectedParking, scheduling, setScheduling, userInformation, setUserInformation}}>
       {children}
