@@ -74,7 +74,7 @@ export default function ParkingDetail() {
                 </Row>
                     <ParkingDetailCard style={{marginTop: 20}} />
                     <MainButton style={{marginTop: 16}} text={"Reservar vaga"} styleName="default" iconName="calendar"/>
-                    <MainButton onPress={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}} style={{marginTop: 16}} text={"Ir para o estacionamento"} styleName="transparent" iconName="arrow-forward"/>
+                    <MainButton callback={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}} style={{marginTop: 16}} text={"Ir para o estacionamento"} styleName="transparent" iconName="arrow-forward"/>
                     <Separator style={{marginTop: 16}}/>
                     <SectionTitle style={{marginBottom: 16}}>Tabela de preços</SectionTitle>
                     <Table>
@@ -115,7 +115,7 @@ export default function ParkingDetail() {
                             />
                             <ReviewScoreText>4.3 (233)</ReviewScoreText>
                         </View>
-                        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', gap: 8}}>
+                        <TouchableOpacity onPress={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}} style={{flexDirection: 'row', alignItems: 'center', gap: 8}}>
                             <MapsButtonTextStyle>Ver no google</MapsButtonTextStyle>
                             <ArrowUpRight size={16} color={Constants.colors.gray["600"]}/>
                         </TouchableOpacity>
