@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { buttonConfig } from '../../../constants/index';
 
 export const MainButtonStyle = styled.TouchableOpacity`
+  width: ${(props) => props.width};
   display: flex;
   flex-direction: row;
   gap: 8px;

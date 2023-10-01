@@ -4,12 +4,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
 import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
-import { colors, logosConfig } from '../../constants/index';
+import { colors, imagesConfig } from '../../constants/index';
+import SuccessScreen from '../../views/Success';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="Success" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -17,7 +18,7 @@ export default function DriversRoutes() {
           headerTitleAlign: 'center',
           headerTitle: () => (
             <Image
-              source={logosConfig.EstaplitBlue}
+              source={imagesConfig.EstaplitBlue}
               style={{ width: 124, height: 40 }}
             />
           ),
@@ -65,6 +66,13 @@ export default function DriversRoutes() {
             </TouchableWithoutFeedback>
           ),
         })}
+      />
+      <Stack.Screen
+        name="Success"
+        component={SuccessScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );

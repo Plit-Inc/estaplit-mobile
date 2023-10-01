@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, fontConfig, titleConfig } from '../../constants';
+import { colors, fontConfig } from '../../constants';
 
 export const SafeView = styled.SafeAreaView`
   background-color: ${colors.gray[100]};

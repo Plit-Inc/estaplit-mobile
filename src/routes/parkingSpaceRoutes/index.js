@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image } from 'react-native';
 import ParkingLogin from '../../views/ParkingLogin';
-import { logosConfig } from '../../constants';
+import { imagesConfig } from '../../constants';
 
 const Stack = createNativeStackNavigator();
 export default function ParkingRoutes() {
@@ -17,7 +17,7 @@ export default function ParkingRoutes() {
           headerTitleAlign: 'center',
           headerTitle: () => (
             <Image
-              source={logosConfig.EstaplitSpot}
+              source={imagesConfig.EstaplitSpot}
               style={{ width: 120, height: 40 }}
             />
           ),

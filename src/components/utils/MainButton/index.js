@@ -12,6 +12,7 @@ export default function MainButton({
   const styles = {
     default: buttonConfig.Default.Primary.Default,
     transparent: buttonConfig.Default.Primary.Transparent,
+    white: buttonConfig.Default.Primary.White,
   };
 
   const buttonStyle = styles[styleName];
@@ -19,6 +20,7 @@ export default function MainButton({
   return (
     <MainButtonStyle
       {...props}
+      width={buttonStyle.Width}
       backgroundColor={buttonStyle.BackgroundColor}
       border={buttonStyle.Border}
       padding={buttonStyle.Padding}
