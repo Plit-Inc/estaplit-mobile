@@ -4,7 +4,7 @@ import { fontsLoadedConfig } from '../../constants/index.js';
 import { useFonts } from 'expo-font';
 import { DriverContext} from '../../Context/index.js';
 import ParkingCard from '../../components/utils/ParkingCard';
-import { ParkingCardContainer, StyledContainer, ScrowViewStyled, MainView, DateHoursContainer} from './style.js';
+import { ParkingCardContainer, StyledContainer, ScrowViewStyled, MainView, DateHoursContainer,BodyContainer } from './style.js';
 import Title from '../../components/utils/Title/index.js';
 import DateToggleSelect from '../../components/utils/DateToggle/DateToggleSelect.js';
 import DateToggle from '../../components/utils/DateToggle/index.js';
@@ -114,7 +114,7 @@ export default function ReserveParking() {
     setScheduling({...scheduling, date: selectedData.date, hour: selectedHour.hour})
     
   }
-
+  
     return (
       <MainView>
         <StyledContainer height={'130px'}>
@@ -128,6 +128,7 @@ export default function ReserveParking() {
             imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
           />
         </StyledContainer>
+        <BodyContainer>
         <DateHoursContainer>
           <Title text={"Selecione uma data e horário"} />
           <ScrowViewStyled 
@@ -144,7 +145,7 @@ export default function ReserveParking() {
             />
           </TouchableOpacity>
             
-        ))}
+          ))}
           </ScrowViewStyled>
           
           <ScrowViewStyled>
@@ -159,13 +160,11 @@ export default function ReserveParking() {
               </TouchableOpacity>
           ))
           }
-        </ScrowViewStyled>
-        </DateHoursContainer>
-      
-          <MainButton style={{margin: 18}} text={"Continuar"} styleName="default" iconName="" onPress={handleScheduling}/>
-
-
+          </ScrowViewStyled>
         
+        </DateHoursContainer>
+        <MainButton style={{margin: 18}} text={"Continuar"} styleName="default" iconName="" onPress={handleScheduling}/>
+        </BodyContainer>
       </MainView>
     )
 

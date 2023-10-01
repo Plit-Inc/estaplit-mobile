@@ -9,31 +9,32 @@ export const StyledContainer = styled.View`
     padding: 16px;
     height: ${(props) => (props.height ? props.height : 'auto')};
     flex-direction: column;
+    height: 15%;
 `;
 
 export const DateHoursContainer = styled.View`
     background-color: ${colors.gray[100]};
     padding: 16px;
-    flex: 1;
     flex-direction: column;
+    
 `;
 
 export const MainView = styled.View`
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-bottom: 10%;
     
 `;
 
-export const ScrowViewStyled = styled.ScrollView`
-    margin: 5px;
-    padding: 5px;
+export const BodyContainer = styled.View`
+    background-color: ${colors.gray[100]};
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
 `;
 
-export const TouchableOpacityStyled = styled.TouchableOpacity`
-    margin: 5px;
-    padding: 5px;
-    height: min-content;
+export const ScrowViewStyled = styled.ScrollView`
+    margin-top: 15px;
 `;
+

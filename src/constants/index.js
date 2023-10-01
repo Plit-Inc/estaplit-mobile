@@ -204,7 +204,7 @@ export const dateToggleConfig = {
     maxWidth: '80px',
   },
   Default: {
-    backgroundColor: colors.gray[0],
+    backgroundColor: colors.gray[100],
     color: colors.gray[600],
   },
   Ontouch: {
