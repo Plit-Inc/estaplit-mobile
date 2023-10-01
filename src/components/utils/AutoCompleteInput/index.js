@@ -12,7 +12,7 @@ import * as Location from 'expo-location';
 import axios from 'axios';
 import { colors, AutoCompleteConfig } from '../../../constants/index';
 
-const GOOGLE_PLACES_API_KEY = 'AIzaSyCd6RiuEXOXE5XDoVKBGMlRZrOwM7dEBOo';
+const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_KEY;
 
 function AutoCompleteInput() {
   const [currentLocation, setCurrentLocation] = useState('');
