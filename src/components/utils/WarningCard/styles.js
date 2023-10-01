@@ -4,7 +4,7 @@ import * as Constants from '../../../../src/constants/index';
 export const WarningCardStyle = styled.View`
   padding: 8px;
   border-left-width: 2px;
-  border-left-color: ${Constants.colors.alert["600"]};
+  border-left-color: ${(props) => props.color || Constants.colors.alert["600"]};
   flex-direction: row;
   align-items: center;
   gap: 8px;

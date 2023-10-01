@@ -3,6 +3,7 @@ import React from 'react';
 import Title from '../utils/Title';
 import { Section,Container,SectionTitle,SectionSubtitle } from './style';
 import WarningCard from '../utils/WarningCard';
+import * as Constants from "../../constants";
 
 
 export default function PaymentInfo({title, method, status,time,value, fee, totalValue}) {
@@ -38,6 +39,7 @@ export default function PaymentInfo({title, method, status,time,value, fee, tota
             <SectionSubtitle style={{fontSize:"22px"}}>{totalValue}</SectionSubtitle>
         </Section>
         }
+        <WarningCard type={'message'} text={"Valores referentes à horas adicionais deverão ser pagos no local (se existirem, é claro ;p)"}/>
        
     </Container>
   )
