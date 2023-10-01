@@ -16,3 +16,15 @@ export const StyledParkingContainer = styled.View`
     height: 15%;
 `;
 
+export const SectionTitle = styled.Text`
+  font-family: ${Constants.parkingDetailConfig.Utils.fontFamily.Medium};
+  font-size: ${Constants.parkingDetailConfig.Utils.FontSize.Medium};
+  color: ${Constants.colors.gray[800]};
+  margin-top: 24px;
+`
+export const SectionSubtitle = styled.Text`
+  font-family: ${Constants.parkingDetailConfig.Utils.fontFamily.Regular};
+  font-size: ${Constants.parkingDetailConfig.Utils.FontSize.Medium};
+  color: ${Constants.colors.gray[600]};
+  margin-top: 16px;
+`;

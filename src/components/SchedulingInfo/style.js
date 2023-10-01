@@ -56,17 +56,3 @@ export const InfoStatus = styled.Text`
   
 `;
 
-export const WarningContainer = styled.View`
-    flex-direction: row;
-    border-left-color: ${colors.alert[600]};
-    border-left-width: 1px;
-    padding: 0 20px;
-    align-items: center;
-    
-`;
-export const WarningText = styled.Text`
-    font-size: 14px;
-    font-weight: 600;
-    color: ${colors.alert[600]};
-    margin: 20px;
-`;
