@@ -15,12 +15,16 @@ export default function SchedulingInfo({ title, status, parkingCode, date, hour,
             <InfoStatus>{status}</InfoStatus>
           </InfoStatusContainer>}
       </InfoHeader>
+
+
       {parkingCode &&
         <InfoCodeContainer>
           <Text>Código da Reserva</Text>
           <InfoCode>{parkingCode}</InfoCode>
         </InfoCodeContainer>
          }
+
+
       <DateTimeContainer>
           <DateTimeCard>
             <Text>Data</Text>
@@ -32,6 +36,8 @@ export default function SchedulingInfo({ title, status, parkingCode, date, hour,
           </DateTimeCard>
         </DateTimeContainer>
       <WarningCard text={"Se liga! Tolerância máxima de 1 hora após o horário agendado."}/>
+
+
       
     </InfoContainer>
   )

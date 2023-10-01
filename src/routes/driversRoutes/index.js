@@ -12,6 +12,7 @@ import ScheduleParkingContactValidation from "../../views/ScheduleParkingContact
 import CancelSchedule from "../../views/CancelSchedule";
 import ReserveParking from '../../views/ReserveParking';
 import ConfirmReservation from '../../views/ConfirmReservation';
+import ViewReservation from '../../views/ViewReservation';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -26,7 +27,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ConfirmReservation" screenOptions={ConfirmReservation}>
+    <Stack.Navigator initialRouteName="ViewReservation" screenOptions={ViewReservation}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -73,6 +74,21 @@ export default function DriversRoutes() {
       <Stack.Screen
         name="ConfirmReservation"
         component={ConfirmReservation}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ViewReservation"
+        component={ViewReservation}
         options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableWithoutFeedback onPress={navigation.goBack}>
