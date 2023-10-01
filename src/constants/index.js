@@ -432,3 +432,29 @@ export const parkingDetailConfig = {
 
   },
 };
+
+
+export const ContainerConfig = {
+  Utils: {
+    fontFamily: {
+      Regular: 'Jano-Regular',
+      SemiBold: 'Jano-SemiBold',
+    },
+    BorderRadius: spacing.default,
+    BorderBottomColor: colors.gray[300],
+    FontSize: {
+      Default: spacing.default,
+      Medium: spacing.medium,
+      Title: spacing.large,
+    },
+    TextColor: colors.gray[600],
+    IconSize: 16,
+    IconColor: colors.gray[600],
+  },
+  Default: {
+    TitleColor: colors.gray[800],
+  },
+  Disabled: {
+    TitleColor: colors.gray[600],
+  },
+};

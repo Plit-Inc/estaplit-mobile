@@ -5,12 +5,13 @@ import HomeScreen from '../../views/Home';
 import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
 import ReserveParking from '../../views/ReserveParking';
+import ConfirmReservation from '../../views/ConfirmReservation';
 import { colors } from '../../constants/index';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
   return (
-    <Stack.Navigator initialRouteName="ReserveParking" screenOptions={ReserveParking}>
+    <Stack.Navigator initialRouteName="ConfirmReservation" screenOptions={ConfirmReservation}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -36,6 +37,21 @@ export default function DriversRoutes() {
       <Stack.Screen
         name="ReserveParking"
         component={ReserveParking}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ConfirmReservation"
+        component={ConfirmReservation}
         options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableWithoutFeedback onPress={navigation.goBack}>

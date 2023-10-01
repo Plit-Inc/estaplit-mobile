@@ -3,15 +3,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, ParkingListScreenConfig } from '../../constants';
 
 
-export const StyledContainer = styled.View`
+export const StyledParkingContainer = styled.View`
     background-color: ${colors.gray[100]};
-    margin-bottom: 16;
+    margin-bottom: 16px;
     padding: 16px;
-    height: ${(props) => (props.height ? props.height : 'auto')};
     flex-direction: column;
     height: 15%;
 `;
-
 export const DateHoursContainer = styled.View`
     background-color: ${colors.gray[100]};
     padding: 16px;

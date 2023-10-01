@@ -1,13 +1,10 @@
-import { Text, View,TouchableOpacity,ScrollView } from 'react-native'
-import React, { Component, useEffect, useState } from 'react'
-import { fontsLoadedConfig } from '../../constants/index.js';
-import { useFonts } from 'expo-font';
+import { TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { DriverContext} from '../../Context/index.js';
 import ParkingCard from '../../components/utils/ParkingCard';
-import { ParkingCardContainer, StyledContainer, ScrowViewStyled, MainView, DateHoursContainer,BodyContainer } from './style.js';
+import { StyledContainer, ScrowViewStyled, MainView, DateHoursContainer,BodyContainer, StyledParkingContainer } from './style.js';
 import Title from '../../components/utils/Title/index.js';
 import DateToggleSelect from '../../components/utils/DateToggle/DateToggleSelect.js';
-import DateToggle from '../../components/utils/DateToggle/index.js';
 import HourToggle from '../../components/utils/HourToggle/index.js'
 
 import MainButton from '../../components/utils/MainButton/index.js';
@@ -117,7 +114,7 @@ export default function ReserveParking() {
   
     return (
       <MainView>
-        <StyledContainer height={'130px'}>
+        <StyledParkingContainer>
           <ParkingCard
             isOpen
             price="R$1,25"
@@ -127,7 +124,7 @@ export default function ReserveParking() {
             hours="07:00 - 22:00"
             imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
           />
-        </StyledContainer>
+        </StyledParkingContainer>
         <BodyContainer>
         <DateHoursContainer>
           <Title text={"Selecione uma data e horário"} />
