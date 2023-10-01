@@ -28,23 +28,13 @@ function HomeScreen({ navigation }) {
   const [inputText, setInputText] = useState('');
 
   return (
-    <>
+    <SafeView>
       <StatusBar backgroundColor="transparent" />
-      <SafeView>
-        {/* <ScrollView */}
-        {/*  alwaysBounceVertical */}
-        {/*  automaticallyAdjustContentInsets */}
-        {/*  showsVerticalScrollIndicator={false} */}
-        {/* > */}
-        <LogoContainer>
-          <Image
-            style={{
-              width: 124,
-              height: 40,
-            }}
-            source={require('../../../assets/estaplit-icon-blue.png')}
-          />
-        </LogoContainer>
+      <ScrollView
+        alwaysBounceVertical
+        automaticallyAdjustContentInsets
+        showsVerticalScrollIndicator={false}
+      >
         <InputContainer>
           <Title>Para onde você deseja ir?</Title>
         </InputContainer>
@@ -54,6 +44,7 @@ function HomeScreen({ navigation }) {
             text="Buscar estacionamentos "
             iconName="search"
             styleName="default"
+            callback={() => navigation.navigate('ParkingList')}
           />
         </SearchContainer>
         <CloseParkingsContainer>
@@ -64,7 +55,7 @@ function HomeScreen({ navigation }) {
             horizontal
             data={[
               { key: '1', title: 'RECIFE ROTATIVO ESTACIONAMENTOS' },
-              { key: '2', title: 'RECIFE ESTACIONAMENTOS' },
+              { key: '2', title: 'RECIFE R0TATIVO ESTACIONAMENTOS' },
               { key: '3', title: 'RECIFE ROTATIVO ESTACIONAMENTOS' },
               { key: '4', title: 'RECIFE ROTATIVO ESTACIONAMENTOS' },
             ]}
@@ -86,9 +77,8 @@ function HomeScreen({ navigation }) {
           title="Go to ParkingList"
           onPress={() => navigation.navigate('ParkingList')}
         />
-        {/* </ScrollView> */}
-      </SafeView>
-    </>
+      </ScrollView>
+    </SafeView>
   );
 }
 
