@@ -374,6 +374,7 @@ export const HomeScreenConfig = {
     fontSize: spacing.large,
     lineHeight: '22px',
     fontWeight: 400,
+    fontFamily: fontConfig.Regular,
   },
   Search: {
     paddingTop: spacing.largeS2,

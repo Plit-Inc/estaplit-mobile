@@ -38,17 +38,25 @@
           "dgis",
           "lftgpas"
         ]
-     }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.joaomadruga.estaplit"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["./src/plugins/android-manifest.plugin.js"]
+    "plugins": [
+      "./src/plugins/android-manifest.plugin.js"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "eec5d015-4091-48da-a5f0-c90b10909a3c"
+      }
+    }
   }
 }

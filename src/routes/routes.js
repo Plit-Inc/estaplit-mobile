@@ -1,15 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
-import DriversRoutes from './driversRoutes';
-import { DriverContextProvider } from '../Context/index';
-import ParkingRoutes from './parkingSpaceRoutes';
+import DriversRoutes from "./driversRoutes";
+import { NavigationContainer } from "@react-navigation/native";
+import { DriverContextProvider } from "../Context/index";
+import ParkingOwnerRoutes from "./parkingOwnerRoutes";
 
 export default function Routes() {
   return (
-    <NavigationContainer>
-      <DriverContextProvider>
-        <DriversRoutes />
-        {/* <ParkingRoutes /> */}
-      </DriverContextProvider>
-    </NavigationContainer>
-  );
+    <>
+      <NavigationContainer>
+        <DriverContextProvider>
+          <DriversRoutes />
+        {/*<ParkingOwnerRoutes />*/}
+        </DriverContextProvider>
+      </NavigationContainer>
+    </>
+  )
 }

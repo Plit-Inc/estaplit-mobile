@@ -4,6 +4,7 @@ import { RadioButton } from 'react-native-paper';
 import { colors } from '../../../constants/index';
 import { Options, Row } from './style';
 import MainButton from '../MainButton';
+import { Platform } from 'react-native';
 
 function OptionsModal() {
   const [distance, setDistance] = useState(false);
@@ -19,12 +20,15 @@ function OptionsModal() {
           style={{ borderBottomWidth: 1, borderBottomColor: colors.gray[300] }}
         >
           <Text>Distância</Text>
-          <RadioButton
-            value="first"
-            color={colors.primary[500]}
-            status={distance ? 'checked' : 'unchecked'}
-            onPress={() => setDistance(!distance)}
-          />
+          <View style={Platform.OS === 'ios' ? {backgroundColor: 'gray', borderRadius: 100} : {backgroundColor: 'white'}}>
+            <RadioButton
+              value="first"
+              uncheckedColor="red"
+              color={colors.primary[500]}
+              status={distance ? 'checked' : 'unchecked'}
+              onPress={() => setDistance(!distance)}
+            />
+          </View>
         </Row>
 
         <Row
