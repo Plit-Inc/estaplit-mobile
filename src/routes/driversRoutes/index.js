@@ -26,7 +26,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ScheduleParkingContactValidation" screenOptions={ConfirmReservation}>
+    <Stack.Navigator initialRouteName="ScheduleParkingContactValidation" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
