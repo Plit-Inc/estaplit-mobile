@@ -1,31 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Location from 'expo-location';
-import axios from 'axios';
+import Constants from 'expo-constants';
 import { colors, AutoCompleteConfig } from '../../../constants/index';
 
-const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_KEY;
+const { GOOGLE_PLACES_API_KEY } = Constants.manifest.extra;
 
-function AutoCompleteInput() {
-  const [currentLocation, setCurrentLocation] = useState('');
-  const [currentAddress, setCurrentAddress] = useState('');
-  const [showCurrentAddress, setShowCurrentAddress] = useState(false);
-
-  const [inputText, setInputText] = useState('');
+function AutoCompleteInput({ callback }) {
+  const [liveLocation, setLiveLocation] = useState('');
 
   const [selectedLocation, setSelectedLocation] = useState('');
-
-  const [locateIconColor, setLocateIconColor] = useState(
-    AutoCompleteConfig.Icon.color,
-  );
 
   const [hasTextInput, setHasTextInput] = useState(false);
   const containerHeight = hasTextInput ? 300 : 70;
@@ -44,51 +30,17 @@ function AutoCompleteInput() {
 
       if (status === 'granted') {
         const location = await Location.getCurrentPositionAsync({});
-        setCurrentLocation(location.coords);
+        setLiveLocation(location.coords);
       }
     })();
   }, []);
 
-  const handleGetCurrentLocation = async () => {
-    if (currentLocation) {
-      if (showCurrentAddress) {
-        setLocateIconColor(AutoCompleteConfig.Icon.color);
-        setShowCurrentAddress(false);
-        setInputText('');
-        // setCurrentLocation('');
-        return;
-      }
-      const { latitude, longitude } = currentLocation;
-      setShowCurrentAddress(true);
-      setLocateIconColor(AutoCompleteConfig.Icon.selectedColor);
-
-      try {
-        await getAddressFromCoords(latitude, longitude);
-      } catch (error) {
-        console.error('Error getting address:', error);
-      }
-    } else {
-      console.error('Location not available.');
+  useEffect(() => {
+    if (selectedLocation) {
+      callback(selectedLocation);
     }
-  };
-
-  const getAddressFromCoords = async (latitude, longitude) => {
-    try {
-      const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_PLACES_API_KEY}`,
-      );
-
-      if (response.data?.results) {
-        console.log('response', response);
-        const address = response.data.results[0].formatted_address;
-        setCurrentAddress(address);
-        setInputText(address);
-        console.log(address);
-      }
-    } catch (error) {
-      console.error('Erro ao buscar endereço:', error);
-    }
-  };
+    callback(liveLocation);
+  }, [selectedLocation, liveLocation]);
 
   return (
     <View style={styles.container}>
@@ -136,33 +88,9 @@ function AutoCompleteInput() {
             />
           </View>
         )}
-        renderRightButton={() => (
-          <TouchableWithoutFeedback onPress={handleGetCurrentLocation}>
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginRight: 10,
-              }}
-            >
-              <Ionicons
-                name="locate-outline"
-                size={AutoCompleteConfig.Icon.size}
-                color={locateIconColor}
-              />
-            </View>
-          </TouchableWithoutFeedback>
-        )}
         enablePoweredByContainer={false}
         enableHighAccuracyLocation
         textInputProps={{
-          InputComp: TextInput,
-          value: inputText,
-          onChangeText: (value) => {
-            if (!currentLocation) {
-              setInputText(value);
-            }
-          },
           onBlur: () => {
             setHasTextInput(false);
           },
