@@ -10,6 +10,8 @@ import ScheduleParkingInfo from "../../views/ScheduleParkingInfo";
 import HeaderTitle from "../../components/utils/HeaderTitle";
 import ScheduleParkingContactValidation from "../../views/ScheduleParkingContactValidation";
 import CancelSchedule from "../../views/CancelSchedule";
+import ReserveParking from '../../views/ReserveParking';
+import ConfirmReservation from '../../views/ConfirmReservation';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -24,7 +26,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="ScheduleParkingContactValidation" screenOptions={ConfirmReservation}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -41,6 +43,36 @@ export default function DriversRoutes() {
       <Stack.Screen
         name="ParkingList"
         component={ParkingListScreen}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ReserveParking"
+        component={ReserveParking}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="ConfirmReservation"
+        component={ConfirmReservation}
         options={({ navigation }) => ({
           headerLeft: () => (
             <TouchableWithoutFeedback onPress={navigation.goBack}>

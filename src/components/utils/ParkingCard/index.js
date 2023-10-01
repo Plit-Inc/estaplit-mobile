@@ -17,9 +17,10 @@ function ParkingCard({
   hours,
   imagePath,
   badges,
+  ...props
 }) {
   return (
-    <Element onPress={callback}>
+    <Element onPress={callback} {...props}>
       <ParkImageCard source={{ uri: imagePath }} />
       <ParkContent>
         <View style={{ paddingBottom: 8 }}>
