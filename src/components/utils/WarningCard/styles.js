@@ -15,4 +15,5 @@ export const WarningCardTextStyle = styled.Text`
     color: ${Constants.colors.alert["600"]};
     font-family: ${Constants.fontConfig.Medium};
     max-width: 90%;
+    line-height: 15px;
 `;

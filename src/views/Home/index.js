@@ -80,7 +80,7 @@ function HomeScreen({ navigation }) {
               <Badge label="Ver todas" type="default" />
             </TouchableOpacity>
           </TicketHeader>
-          <TicketCard title="Estapar Estacionamentos" />
+          <TicketCard title="Estapar Estacionamentos" subtitle={"Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560"} isDriver={true} />
         </TicketContainer>
         <Button
           title="Go to ParkingList"

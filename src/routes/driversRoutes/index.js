@@ -1,10 +1,13 @@
-import { Linking, Share, TouchableWithoutFeedback } from 'react-native';
+import {Linking, Share, Text, TouchableWithoutFeedback} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
 import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
 import { colors } from '../../constants/index';
+import ScheduleParkingInfo from "../../views/ScheduleParkingInfo";
+import HeaderTitle from "../../components/utils/HeaderTitle";
+import ScheduleParkingContactValidation from "../../views/ScheduleParkingContactValidation";
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -19,7 +22,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ParkingDetail" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="ScheduleParkingContactValidation" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -64,8 +67,46 @@ export default function DriversRoutes() {
               />
             </TouchableWithoutFeedback>
           ),
+          headerTitle: () => (
+            <HeaderTitle text={"Detalhe do estacionamento"}/>
+          ),
         })}
       />
+      <Stack.Screen
+        name="ScheduleParkingInfo"
+        component={ScheduleParkingInfo}
+        options={({ navigation }) => ({
+            headerLeft: () => (
+                <TouchableWithoutFeedback onPress={navigation.goBack}>
+                    <Ionicons
+                        name="arrow-back"
+                        size={20}
+                        color={colors.primary[500]}
+                    />
+                </TouchableWithoutFeedback>
+            ),
+            headerTitle: () => (
+                <HeaderTitle text={"Insira suas informações"}/>
+            ),
+        })}/>
+
+        <Stack.Screen
+            name="ScheduleParkingContactValidation"
+            component={ScheduleParkingContactValidation}
+            options={({ navigation }) => ({
+                headerLeft: () => (
+                    <TouchableWithoutFeedback onPress={navigation.goBack}>
+                        <Ionicons
+                            name="arrow-back"
+                            size={20}
+                            color={colors.primary[500]}
+                        />
+                    </TouchableWithoutFeedback>
+                ),
+                headerTitle: () => (
+                    <HeaderTitle text={"Valide o seu celular"}/>
+                ),
+            })}/>
     </Stack.Navigator>
   );
 }

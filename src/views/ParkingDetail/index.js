@@ -39,7 +39,7 @@ export default function ParkingDetail() {
         <SafeAreaView>
             <MainScrollView>
                 <MainView>
-                    <ParkingTitle numberOfLines={1}>RECIFE ROTATIVO ESTACIONAMENTOS</ParkingTitle>
+                    <ParkingTitle numberOfLines={2}>RECIFE ROTATIVO ESTACIONAMENTOS</ParkingTitle>
                     <Row>
                         <Info 
                             text={`500m do seu destino`} 

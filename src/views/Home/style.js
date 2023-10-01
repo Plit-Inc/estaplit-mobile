@@ -35,7 +35,7 @@ export const Title = styled.Text`
   padding-bottom: ${HomeScreenConfig.Utils.padding};
   font-size: ${HomeScreenConfig.Title.fontSize};
   line-height: ${HomeScreenConfig.Title.lineHeight};
-  font-family: ${HomeScreenConfig.Ticket.fontFamily};
+  font-family: ${HomeScreenConfig.Title.fontFamily};
 `;
 
 export const InputContainer = styled.View`
