@@ -55,9 +55,7 @@
     ],
     "extra": {
       "GOOGLE_API_KEY": "${GOOGLE_KEY}",
-      "eas": {
-        "projectId": "eec5d015-4091-48da-a5f0-c90b10909a3c"
-      }
     }
+    ]
   }
 }
