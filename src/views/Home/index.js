@@ -38,7 +38,7 @@ function HomeScreen({ navigation }) {
         <InputContainer>
           <Title>Para onde você deseja ir?</Title>
         </InputContainer>
-        <AutoCompleteInput />
+        <AutoCompleteInput callback={setInputText} />
         <SearchContainer>
           <MainButton
             text="Buscar estacionamentos "
@@ -71,7 +71,11 @@ function HomeScreen({ navigation }) {
               <Badge label="Ver todas" type="default" />
             </TouchableOpacity>
           </TicketHeader>
-          <TicketCard title="Estapar Estacionamentos" subtitle={"Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560"} isDriver={true} />
+          <TicketCard
+            title="Estapar Estacionamentos"
+            subtitle="Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560"
+            isDriver
+          />
         </TicketContainer>
       </ScrollView>
     </SafeView>
