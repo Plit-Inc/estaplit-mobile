@@ -136,6 +136,62 @@
         "Sábado": "08:00 às 02:00",
         "Domingo": "08:00 às 00:00"
       },
+      "available_dates": [{
+        "date":"12/10",
+        "day": "segunda",
+        "hours":[{
+          "hour":"10:00",
+          "available": 4
+        },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          }]
+      },
+        {
+          "date":"13/10",
+          "day": "terça",
+          "hours":[{
+            "hour":"11:00",
+            "available": 4
+          },
+            {
+              "hour":"11:00",
+              "available": 4
+            },
+            {
+              "hour":"11:00",
+              "available": 4
+            }]
+        },
+        {
+          "date":"14/10",
+          "day": "quarta",
+          "hours":[{
+            "hour":"12:00",
+            "available": 4
+          },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            }]
+        }],
       "payment_options": ["Cartão de Crédito", "Pix", "Dinheiro", "Débito"],
       "open_parking_spot": 25,
       "total_parking_spot": 50,
@@ -168,6 +224,62 @@
         "Sábado": "07:00 às 19:00",
         "Domingo": "Fechado"
       },
+      "available_dates": [{
+        "date":"12/10",
+        "day": "segunda",
+        "hours":[{
+          "hour":"10:00",
+          "available": 4
+        },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          }]
+      },
+        {
+          "date":"13/10",
+          "day": "terça",
+          "hours":[{
+            "hour":"11:00",
+            "available": 4
+          },
+            {
+              "hour":"11:00",
+              "available": 4
+            },
+            {
+              "hour":"11:00",
+              "available": 4
+            }]
+        },
+        {
+          "date":"14/10",
+          "day": "quarta",
+          "hours":[{
+            "hour":"12:00",
+            "available": 4
+          },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            }]
+        }],
       "payment_options": ["Cartão de Crédito", "Pix", "Dinheiro", "Débito"],
       "open_parking_spot": 15,
       "total_parking_spot": 20,
@@ -201,6 +313,62 @@
         "Sábado": "07:00 às 18:00",
         "Domingo": "Fechado"
       },
+      "available_dates": [{
+        "date":"12/10",
+        "day": "segunda",
+        "hours":[{
+          "hour":"10:00",
+          "available": 4
+        },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          }]
+      },
+        {
+          "date":"13/10",
+          "day": "terça",
+          "hours":[{
+            "hour":"11:00",
+            "available": 4
+          },
+            {
+              "hour":"11:00",
+              "available": 4
+            },
+            {
+              "hour":"11:00",
+              "available": 4
+            }]
+        },
+        {
+          "date":"14/10",
+          "day": "quarta",
+          "hours":[{
+            "hour":"12:00",
+            "available": 4
+          },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            }]
+        }],
       "payment_options": ["Cartão de Crédito", "Pix", "Débito"],
       "open_parking_spot": 10,
       "total_parking_spot": 20,
@@ -233,6 +401,62 @@
         "Sábado": "Fechado",
         "Domingo": "Fechado"
       },
+      "available_dates": [{
+        "date":"12/10",
+        "day": "segunda",
+        "hours":[{
+          "hour":"10:00",
+          "available": 4
+        },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          }]
+      },
+        {
+          "date":"13/10",
+          "day": "terça",
+          "hours":[{
+            "hour":"11:00",
+            "available": 4
+          },
+            {
+              "hour":"11:00",
+              "available": 4
+            },
+            {
+              "hour":"11:00",
+              "available": 4
+            }]
+        },
+        {
+          "date":"14/10",
+          "day": "quarta",
+          "hours":[{
+            "hour":"12:00",
+            "available": 4
+          },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            }]
+        }],
       "payment_options": ["Dinheiro", "Pix", "Débito"],
       "open_parking_spot": 10,
       "total_parking_spot": 20,
