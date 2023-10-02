@@ -11,10 +11,9 @@ export const MainView = styled.View`
 
 export const StyledParkingContainer = styled.View`
     background-color: ${colors.gray[100]};
-    margin-bottom: 16;
-    padding: 16px;
+   
     flex-direction: column;
-    height: 15%;
+    
 `;
 
 

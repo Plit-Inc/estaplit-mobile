@@ -1,4 +1,4 @@
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { MainView, StyledParkingContainer} from './style.js'
 import React from 'react'
 import ParkingCard from '../../components/utils/ParkingCard/index.js';
@@ -26,15 +26,17 @@ export default function ConfirmReservation() {
           </StyledParkingContainer>
           <Separator style={{marginTop: 16}}/>
           
-          <SchedulingInfo title={'Agendamento'} date={'24 Jan.2023'} hour={'13:00'} parkingCode={'14052023-001'} status={"Confirmada"}/>
+          <SchedulingInfo title={'Agendamento'} date={'24 Jan.2023'} hour={'13:00'} />
 
           <Separator style={{marginTop: 24}}/>
             <AddressInfo title={"Endereço"} address={"Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560"}/>
             <Separator style={{marginTop: 24}}/>
            <PolicyMessage title={"Política de cancelamento"} message={"Caso o cancelamento seja confirmado em pelo menos 24 horas antes do horário agendado receba de volta o valor integral que você pagou. Sem reembolso caso falte menos de 24 horas para a sua reserva."}/>
-           <MainButton style={{marginTop: 16}} text={"Confirmar reservar"} styleName="default" iconName="arrow-forward"/>
+           
            <Separator style={{marginTop: 24}}/>
-            <PaymentInfo title={'Pagamento'} method={'Crédito'} status={'12:24 10/05/2023'} fee={'4,00'} time={'4'} value={'11,00'} totalValue={'16,00'}/>
+            <PaymentInfo title={'Valores'}  fee={'4,00'} time={'4'} value={'11,00'} totalValue={'16,00'}/>
+            <MainButton style={{marginTop: 16}} text={"Confirmar reservar"} styleName="default" iconName="arrow-forward"/>
+            <View style={{height: 50}}></View>
     </MainView>
     </ScrollView>
   )

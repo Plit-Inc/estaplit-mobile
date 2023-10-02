@@ -27,7 +27,7 @@ export default function DriversRoutes() {
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ViewReservation" screenOptions={ViewReservation}>
+    <Stack.Navigator initialRouteName="ConfirmReservation" screenOptions={ConfirmReservation}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
