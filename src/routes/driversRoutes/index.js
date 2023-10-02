@@ -1,4 +1,4 @@
-import {Image, Linking, Share, Text, TouchableWithoutFeedback} from 'react-native';
+import { Alert, Image, Share, TouchableWithoutFeedback } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import HomeScreen from '../../views/Home';
@@ -6,21 +6,20 @@ import ParkingDetail from '../../views/ParkingDetail';
 import ParkingListScreen from '../../views/ParkingList';
 import { colors, imagesConfig } from '../../constants/index';
 import SuccessScreen from '../../views/Success';
-import ScheduleParkingInfo from "../../views/ScheduleParkingInfo";
-import HeaderTitle from "../../components/utils/HeaderTitle";
-import ScheduleParkingContactValidation from "../../views/ScheduleParkingContactValidation";
-import CancelSchedule from "../../views/CancelSchedule";
+import ScheduleParkingInfo from '../../views/ScheduleParkingInfo';
+import HeaderTitle from '../../components/utils/HeaderTitle';
+import ScheduleParkingContactValidation from '../../views/ScheduleParkingContactValidation';
+import CancelSchedule from '../../views/CancelSchedule';
 import ReserveParking from '../../views/ReserveParking';
 import ConfirmReservation from '../../views/ConfirmReservation';
-import VisualizeSchedule from "../../views/VisualizeSchedule";
+import VisualizeSchedule from '../../views/VisualizeSchedule';
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
   const onShare = async () => {
     try {
       await Share.share({
-        message:
-          'Confira esse estacionamento que encontrei no estaplit!',
+        message: 'Confira esse estacionamento que encontrei no estaplit!',
       });
     } catch (error) {
       Alert.alert(error.message);
@@ -69,9 +68,7 @@ export default function DriversRoutes() {
               />
             </TouchableWithoutFeedback>
           ),
-          headerTitle: () => (
-            <HeaderTitle text={"Reservar vaga"}/>
-          ),
+          headerTitle: () => <HeaderTitle text="Reservar vaga" />,
         })}
       />
       <Stack.Screen
@@ -87,9 +84,7 @@ export default function DriversRoutes() {
               />
             </TouchableWithoutFeedback>
           ),
-          headerTitle: () => (
-            <HeaderTitle text={"Confirme sua reserva"}/>
-          ),
+          headerTitle: () => <HeaderTitle text="Confirme sua reserva" />,
         })}
       />
       <Stack.Screen
@@ -106,7 +101,11 @@ export default function DriversRoutes() {
             </TouchableWithoutFeedback>
           ),
           headerRight: () => (
-            <TouchableWithoutFeedback onPress={() => {onShare()}}>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                onShare();
+              }}
+            >
               <Ionicons
                 name="share-outline"
                 size={20}
@@ -114,9 +113,7 @@ export default function DriversRoutes() {
               />
             </TouchableWithoutFeedback>
           ),
-          headerTitle: () => (
-            <HeaderTitle text={"Detalhe do estacionamento"}/>
-          ),
+          headerTitle: () => <HeaderTitle text="Detalhe do estacionamento" />,
         })}
       />
       <Stack.Screen
@@ -130,54 +127,52 @@ export default function DriversRoutes() {
         name="ScheduleParkingInfo"
         component={ScheduleParkingInfo}
         options={({ navigation }) => ({
-            headerLeft: () => (
-                <TouchableWithoutFeedback onPress={navigation.goBack}>
-                    <Ionicons
-                        name="arrow-back"
-                        size={20}
-                        color={colors.primary[500]}
-                    />
-                </TouchableWithoutFeedback>
-            ),
-            headerTitle: () => (
-                <HeaderTitle text={"Insira suas informações"}/>
-            ),
-      })}/>
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => <HeaderTitle text="Insira suas informações" />,
+        })}
+      />
 
       <Stack.Screen
-          name="ScheduleParkingContactValidation"
-          component={ScheduleParkingContactValidation}
-          options={({ navigation }) => ({
-              headerLeft: () => (
-                  <TouchableWithoutFeedback onPress={navigation.goBack}>
-                      <Ionicons
-                          name="arrow-back"
-                          size={20}
-                          color={colors.primary[500]}
-                      />
-                  </TouchableWithoutFeedback>
-              ),
-              headerTitle: () => (
-                  <HeaderTitle text={"Valide o seu celular"}/>
-              ),
-          })}/>
+        name="ScheduleParkingContactValidation"
+        component={ScheduleParkingContactValidation}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => <HeaderTitle text="Valide o seu celular" />,
+        })}
+      />
       <Stack.Screen
-          name="CancelSchedule"
-          component={CancelSchedule}
-          options={({ navigation }) => ({
-              headerLeft: () => (
-                  <TouchableWithoutFeedback onPress={navigation.goBack}>
-                      <Ionicons
-                          name="arrow-back"
-                          size={20}
-                          color={colors.error[600]}
-                      />
-                  </TouchableWithoutFeedback>
-              ),
-              headerTitle: () => (
-                  <HeaderTitle text={"Cancelar reserva"} style={{color: colors.error["600"]}}/>
-              ),
-          })}/>
+        name="CancelSchedule"
+        component={CancelSchedule}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons name="arrow-back" size={20} color={colors.error[600]} />
+            </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => (
+            <HeaderTitle
+              text="Cancelar reserva"
+              style={{ color: colors.error['600'] }}
+            />
+          ),
+        })}
+      />
       <Stack.Screen
         name="VisualizeSchedule"
         component={VisualizeSchedule}
@@ -192,10 +187,17 @@ export default function DriversRoutes() {
             </TouchableWithoutFeedback>
           ),
           headerTitle: () => (
-            <HeaderTitle text={"Detalhes da reserva"} style={{color: colors.primary[500]}}/>
+            <HeaderTitle
+              text="Detalhes da reserva"
+              style={{ color: colors.primary[500] }}
+            />
           ),
           headerRight: () => (
-            <TouchableWithoutFeedback onPress={() => {navigation.navigate('CancelSchedule')}}>
+            <TouchableWithoutFeedback
+              onPress={() => {
+                navigation.navigate('CancelSchedule');
+              }}
+            >
               <Ionicons
                 name="trash-outline"
                 size={20}
@@ -203,7 +205,8 @@ export default function DriversRoutes() {
               />
             </TouchableWithoutFeedback>
           ),
-        })}/>
+        })}
+      />
     </Stack.Navigator>
   );
 }

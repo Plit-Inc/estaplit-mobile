@@ -25,20 +25,11 @@ export const SearchContainer = styled.View`
   padding-bottom: 24px;
 `;
 
-export const LogoContainer = styled.View`
-  background-color: #fefefe;
-  display: flex;
-  align-items: center;
-`;
-
 export const Title = styled.Text`
   padding-bottom: ${HomeScreenConfig.Utils.padding};
   font-size: ${HomeScreenConfig.Title.fontSize};
   line-height: ${HomeScreenConfig.Title.lineHeight};
   font-family: ${HomeScreenConfig.Title.fontFamily};
-`;
-
-export const InputContainer = styled.View`
 `;
 
 export const TicketHeader = styled.View`

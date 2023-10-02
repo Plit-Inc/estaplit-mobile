@@ -33,3 +33,16 @@ export const Info = styled.Text`
   font-weight: ${ParkingListScreenConfig.Utils.fontWeight};
   font-size: ${ParkingListScreenConfig.Text.fontSize};
 `;
+
+export const Options = styled.View`
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 24px;
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+`;

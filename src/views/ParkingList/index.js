@@ -1,19 +1,32 @@
 import React, { useRef, useState } from 'react';
-import {ScrollView, View, TouchableOpacity, FlatList} from 'react-native';
+import {
+  ScrollView,
+  View,
+  TouchableOpacity,
+  FlatList,
+  Text,
+  Platform,
+} from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { LocationContainer, SafeView, Info, ParkingListTitle } from './style';
+import { RadioButton } from 'react-native-paper';
+import {
+  LocationContainer,
+  SafeView,
+  Info,
+  ParkingListTitle,
+  Row,
+  Options,
+} from './style';
 import Input from '../../components/utils/Input';
 import ParkingCard from '../../components/utils/ParkingCard';
 import { colors } from '../../constants';
-import OptionsModal from '../../components/utils/OptionsModal';
 import Title from '../../components/utils/Title';
 import FilterCard from '../../components/utils/FilterCard';
-import {useNavigation} from "@react-navigation/native";
-import {useDriverContext} from "../../Context";
-import TicketCard from "../../components/utils/TicketCard";
+import { useDriverContext } from '../../Context';
+import MainButton from '../../components/utils/MainButton';
 
-function ParkingListScreen({route, navigation}) {
+function ParkingListScreen({ route, navigation }) {
   const { destination } = route.params;
   const { setSelectedParkingSpace, parking_spaces } = useDriverContext();
   const [inputText, setInputText] = useState(destination);
@@ -25,7 +38,7 @@ function ParkingListScreen({route, navigation}) {
 
   const modalizeRef = useRef(null);
 
-  const [checked, setChecked] = useState('first');
+  const [filter, setFilter] = useState('distance');
 
   const onOpen = () => {
     modalizeRef.current?.open();
@@ -39,7 +52,7 @@ function ParkingListScreen({route, navigation}) {
 
   return (
     <SafeView>
-      <View style={{height: '100%'}}>
+      <View style={{ height: '100%' }}>
         <LocationContainer>
           <ParkingListTitle>Indo para</ParkingListTitle>
           <View
@@ -95,16 +108,21 @@ function ParkingListScreen({route, navigation}) {
         <Info>{parking_spaces.length} estacionamentos encontrados</Info>
         <FlatList
           data={parking_spaces}
-          renderItem={({ item }) => <ParkingCard
-            isOpen
-            callback={() => { navigation.navigate('ParkingDetail'); setSelectedParkingSpace(item) }}
-            price={item.price}
-            title={item.name}
-            distance={item.distance}
-            review={item.rate}
-            hours={item.hour}
-            imagePath={item.images[0]}
-          />}
+          renderItem={({ item }) => (
+            <ParkingCard
+              isOpen
+              callback={() => {
+                navigation.navigate('ParkingDetail');
+                setSelectedParkingSpace(item);
+              }}
+              price={item.price}
+              title={item.name}
+              distance={item.distance}
+              review={item.rate}
+              hours={item.hour}
+              imagePath={item.images[0]}
+            />
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>
@@ -135,7 +153,55 @@ function ParkingListScreen({route, navigation}) {
           setAllFilters(false);
         }}
       >
-        <OptionsModal />
+        <View
+          style={{
+            flex: 1,
+            paddingLeft: 16,
+            paddingRight: 16,
+            paddingBottom: 80,
+          }}
+        >
+          <RadioButton.Group
+            onValueChange={(newValue) => setFilter(newValue)}
+            value={filter}
+          >
+            <Options>
+              <Row
+                style={{
+                  borderBottomWidth: 1,
+                  borderBottomColor: colors.gray[300],
+                }}
+              >
+                <Text>Distância</Text>
+                <View
+                  style={
+                    Platform.OS === 'ios'
+                      ? { backgroundColor: colors.gray[300], borderRadius: 100 }
+                      : { backgroundColor: colors.gray[100] }
+                  }
+                >
+                  <RadioButton value="distance" color={colors.primary[500]} />
+                </View>
+              </Row>
+
+              <Row
+                style={{
+                  borderBottomWidth: 1,
+                  borderBottomColor: colors.gray[300],
+                }}
+              >
+                <Text>Avaliação</Text>
+                <RadioButton value="review" color={colors.primary[500]} />
+              </Row>
+
+              <Row>
+                <Text>Preço</Text>
+                <RadioButton value="price" color={colors.primary[500]} />
+              </Row>
+            </Options>
+          </RadioButton.Group>
+          <MainButton text="Aplicar" styleName="default" callback={onClose} />
+        </View>
       </Modalize>
     </SafeView>
   );
