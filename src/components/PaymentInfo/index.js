@@ -33,6 +33,7 @@ export default function PaymentInfo({title, method, status,time,value, fee, tota
             <SectionSubtitle> R$ {fee}</SectionSubtitle>
         </Section>
         }
+        <View style={{ borderWidth:'0.5px', borderBlockStartColor: Constants.colors.gray[100]}}></View>
         {totalValue &&
         <Section style={{justifyContent: 'space-between', flexDirection:'row', padding:0}}> 
             <SectionSubtitle style={{fontSize:"22px"}}>Total pago via app</SectionSubtitle>

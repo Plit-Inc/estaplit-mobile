@@ -7,6 +7,7 @@ import Separator from '../../components/utils/Separator/index.js';
 import AddressInfo from '../../components/AddressInfo/index.js';
 import PolicyMessage from '../../components/utils/PolicyMessage/index.js';
 import MainButton from '../../components/utils/MainButton/index.js';
+import PaymentInfo from '../../components/PaymentInfo/index.js';
 
 export default function ConfirmReservation() {
   return (
@@ -32,6 +33,8 @@ export default function ConfirmReservation() {
             <Separator style={{marginTop: 24}}/>
            <PolicyMessage title={"Política de cancelamento"} message={"Caso o cancelamento seja confirmado em pelo menos 24 horas antes do horário agendado receba de volta o valor integral que você pagou. Sem reembolso caso falte menos de 24 horas para a sua reserva."}/>
            <MainButton style={{marginTop: 16}} text={"Confirmar reservar"} styleName="default" iconName="arrow-forward"/>
+           <Separator style={{marginTop: 24}}/>
+            <PaymentInfo title={'Pagamento'} method={'Crédito'} status={'12:24 10/05/2023'} fee={'4,00'} time={'4'} value={'11,00'} totalValue={'16,00'}/>
     </MainView>
     </ScrollView>
   )

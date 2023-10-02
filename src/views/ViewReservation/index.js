@@ -22,12 +22,12 @@ export default function ViewReservation() {
             hours="07:00 - 22:00"
             imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
           />
+          <MainButton text={"Ver detalhes do estacionamento"} styleName="transparent" iconName="arrow-forward"/>
           
           </StyledParkingContainer>
-          <MainButton style={{marginTop: 16}} text={"Ver detalhes do estacionamento"} styleName="transparent" iconName="arrow-forward"/>
-          <Separator style={{marginTop: 16}}/>
           
-          <SchedulingInfo title={'Agendamento'} date={'24 Jan.2023'} hour={'13:00'} parkingCode={'14052023-001'} status={"Confirmada"}/>
+          <Separator style={{marginTop: 16}}/>
+          <SchedulingInfo title={'Sua reserva'} date={'24 Jan.2023'} hour={'13:00'} parkingCode={'14052023-001'} status={"Confirmada"}/>
 
             <Separator style={{marginTop: 24}}/>
             <AddressInfo title={"Endereço"} address={"Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560"}/>
