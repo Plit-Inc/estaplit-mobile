@@ -7,10 +7,10 @@ export function DriverContextProvider({ children }) {
   const { reservations, parking_spaces } = mock
   const [selectedParkingSpace, setSelectedParkingSpace] = useState(undefined);
   const [scheduling, setScheduling] = useState({});
-  const [userInformation, setUserInformation] = useState({
+  const [scheduleParkingInfo, setScheduleParkingInfo] = useState({
     name: '',
-    tel: '',
-    car: '',
+    phoneNumber: '',
+    car: ''
   });
   return (
     <DriverContext.Provider
@@ -21,8 +21,8 @@ export function DriverContextProvider({ children }) {
         setSelectedParkingSpace,
         scheduling,
         setScheduling,
-        userInformation,
-        setUserInformation
+        scheduleParkingInfo,
+        setScheduleParkingInfo
       }}
     >
       {children}

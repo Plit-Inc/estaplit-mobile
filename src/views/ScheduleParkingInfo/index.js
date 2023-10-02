@@ -9,13 +9,10 @@ import MainButton from "../../components/utils/MainButton";
 import Separator from "../../components/utils/Separator";
 import ScreenIndicator from "../../components/utils/ScreenIndicator";
 import * as Constants from '../../constants';
+import {useDriverContext} from "../../Context";
 
-export default function ScheduleParkingInfo() {
-    const [scheduleParkingInfo, setScheduleParkingInfo] = useState({
-        name: '',
-        phoneNumber: '',
-        car: ''
-    });
+export default function ScheduleParkingInfo({navigation}) {
+    const {scheduleParkingInfo, setScheduleParkingInfo} = useDriverContext();
 
     const handleChange = async (value, type) => {
         setScheduleParkingInfo(prev => ({...prev, [type]: value}));
@@ -33,12 +30,12 @@ export default function ScheduleParkingInfo() {
                     style={{backgroundColor: 'white'}}
                     label="DDD + Celular"
                     placeholder={"(99) 99999-9999"}
-                    value={scheduleParkingInfo.phone}
+                    value={scheduleParkingInfo.phoneNumber}
                     keyboardType={"number-pad"}
                     render={props =>
                         <MaskedTextInput
                             {...props}
-                            onChangeText={(text, rawText) => handleChange(rawText, "phone")}
+                            onChangeText={(text, rawText) => handleChange(rawText, "phoneNumber")}
                             mask="(99) 99999-9999"
                         />
                     }
@@ -53,7 +50,7 @@ export default function ScheduleParkingInfo() {
             <View style={{gap: 8}}>
                 <Separator style={{borderBottomWidth: 1}}/>
                 <ScreenIndicator numberOfFilledWidgets={1}/>
-                <MainButton text={"Continuar"} iconName={"arrow-forward"} styleName="default" onPress={() => navigation.navigate('ParkingList')}/>
+                <MainButton text={"Continuar"} iconName={"arrow-forward"} styleName="default" callback={() => navigation.navigate('ScheduleParkingContactValidation')}/>
             </View>
         </ScheduleParkingInfoStyle>
     )

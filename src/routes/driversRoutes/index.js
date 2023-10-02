@@ -12,6 +12,7 @@ import ScheduleParkingContactValidation from "../../views/ScheduleParkingContact
 import CancelSchedule from "../../views/CancelSchedule";
 import ReserveParking from '../../views/ReserveParking';
 import ConfirmReservation from '../../views/ConfirmReservation';
+import VisualizeSchedule from "../../views/VisualizeSchedule";
 
 const Stack = createNativeStackNavigator();
 export default function DriversRoutes() {
@@ -85,6 +86,9 @@ export default function DriversRoutes() {
                 color={colors.primary[500]}
               />
             </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => (
+            <HeaderTitle text={"Confirme sua reserva"}/>
           ),
         })}
       />
@@ -174,6 +178,32 @@ export default function DriversRoutes() {
                   <HeaderTitle text={"Cancelar reserva"} style={{color: colors.error["600"]}}/>
               ),
           })}/>
+      <Stack.Screen
+        name="VisualizeSchedule"
+        component={VisualizeSchedule}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            <TouchableWithoutFeedback onPress={navigation.goBack}>
+              <Ionicons
+                name="arrow-back"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => (
+            <HeaderTitle text={"Detalhes da reserva"} style={{color: colors.primary[500]}}/>
+          ),
+          headerRight: () => (
+            <TouchableWithoutFeedback onPress={() => {navigation.navigate('CancelSchedule')}}>
+              <Ionicons
+                name="trash-outline"
+                size={20}
+                color={colors.primary[500]}
+              />
+            </TouchableWithoutFeedback>
+          ),
+        })}/>
     </Stack.Navigator>
   );
 }

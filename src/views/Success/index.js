@@ -90,7 +90,7 @@ function SuccessScreen({ navigation }) {
             <MainButton
               text="Ver reserva"
               styleName="white"
-              callback={() => navigation.navigate('')}
+              callback={() => navigation.navigate('VisualizeSchedule')}
             />
           </ReservationCard>
         </Content>

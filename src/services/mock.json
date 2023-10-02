@@ -36,7 +36,7 @@
       "name": "Estacionamento Cais do Recife",
       "address": "Cais da Alfândega, 35 - Recife, PE, 50030-030",
       "distance": 500,
-      "price": "R$4,00",
+      "price": "4",
       "rate": "4,3 (233)",
       "day_time": "07:00-19:00",
       "working_hours": {
@@ -111,9 +111,9 @@
         }],
       "price_table": {
         "Até 20 minutos": "Grátis",
-        "4 horas": "R$ 11,00",
-        "Hora adicional": "+ R$ 4,00",
-        "Taxa de reserva": "+ R$ 5,00"
+        "4 horas": "11",
+        "Hora adicional": "4",
+        "Taxa de reserva": "5"
       },
       "images": ["https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2018/07/06/756766/20180706203355962241i.jpg"]
     },
@@ -124,7 +124,7 @@
       "name": "Estacionamento Porto Recife",
       "address": "Av. Alfredo Lisboa, 2 - Recife, PE, 50020-360",
       "distance": 500,
-      "price": "R$5,00",
+      "price": "R$5",
       "rate": "4,3 (254)",
       "day_time": "08:00-00:00",
       "working_hours": {
@@ -143,9 +143,9 @@
       "total_schedule_parking_spot": 10,
       "price_table": {
         "Até 20 minutos": "Grátis",
-        "4 horas": "R$ 11,00",
-        "Hora adicional": "+ R$ 4,00",
-        "Taxa de reserva": "+ R$ 5,00"
+        "4 horas": "11",
+        "Hora adicional": "4",
+        "Taxa de reserva": "5"
       },
       "images": ["https://pr1.nicelocal.br.com/6e1GpVoSTF-eS9JIycotHg/2400x1350,q75/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2TigF9TbPGEItk6pyvWOOKvndGg-YPxJM_Vfj17ymUzUYYZ8n1bHVZOlGyAI8szQoA"]
     },
@@ -156,7 +156,7 @@
       "name": "Estacionamento e Borracharia do Veio",
       "address": "Tv. do Amorim, 78 - 110, Recife - PE, 50030-070",
       "distance": 2000,
-      "price": "R$5,00",
+      "price": "R$5",
       "rate": "4,3 (254)",
       "day_time": "07:00-19:00",
       "working_hours": {
@@ -174,10 +174,10 @@
       "open_schedule_parking_spot": 2,
       "total_schedule_parking_spot": 5,
       "price_table": {
-        "Até 1 hora": "R$5,00",
-        "Diária": "R$ 20,00",
-        "Hora adicional": "+ R$ 2,00",
-        "Taxa de reserva": "+ R$ 5,00"
+        "Até 1 hora": "R$5",
+        "Diária": "20",
+        "Hora adicional": "2",
+        "Taxa de reserva": "5"
       },
       "images": ["https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2018/07/06/756766/20180706203355962241i.jpg"],
       "phone_number": "8131943950"
@@ -189,7 +189,7 @@
       "name": "Cais da Alfândega, 13 Parking",
       "address": "Cais da Alfândega, 13 - Recife, PE, 50030-100",
       "distance": 400,
-      "price": "R$12,00",
+      "price": "R$12",
       "rate": "not filled",
       "day_time": "07:00-18:00",
       "working_hours": {
@@ -208,9 +208,9 @@
       "total_schedule_parking_spot": 10,
       "price_table": {
         "Até 20 minutos": "Grátis",
-        "1 hora": "R$ 10,00",
-        "Hora adicional": "+ R$ 2,00",
-        "Taxa de reserva": "+ R$ 1,00"
+        "1 hora": "10",
+        "Hora adicional": "2",
+        "Taxa de reserva": "1"
       },
       "images": ["https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3G94F2S2tQtoRu5DzHiIWg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=204.94655&pitch=0&thumbfov=100"]
     },
@@ -221,7 +221,7 @@
       "name": "Arrivée Estacionamento Inteligente",
       "address": "R. Vig. Tenório, 56 - Recife, PE, 50030-010",
       "distance": 400,
-      "price": "R$12,00",
+      "price": "R$12",
       "rate": "not filled",
       "day_time": "07:00-20:00",
       "working_hours": {
@@ -239,10 +239,10 @@
       "open_schedule_parking_spot": 5,
       "total_schedule_parking_spot": 10,
       "price_table": {
-        "Até 4 minutos": "R$15,00",
-        "4 horas": "R$ 15,00",
-        "Hora adicional": "+ R$ 4,00",
-        "Taxa de reserva": "+ R$ 5,00"
+        "Até 4 minutos": "R$15",
+        "4 horas": "15",
+        "Hora adicional": "4",
+        "Taxa de reserva": "5"
       },
       "images": ["https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=3G94F2S2tQtoRu5DzHiIWg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=204.94655&pitch=0&thumbfov=100"]
     }

@@ -11,7 +11,7 @@ import MainButton from '../../components/utils/MainButton/index.js';
 import Separator from "../../components/utils/Separator";
 export default function ReserveParking({ navigation }) {
   const { selectedParkingSpace, scheduling, setScheduling } = useDriverContext();
-  const dates = selectedParkingSpace.available_dates.map((date)=>({...date, isSelected: false}))
+  const dates = selectedParkingSpace.available_dates.map((date)=>({...date, isSelected: false}));
   const [dateList, setdateList] = useState(dates);
   const [hoursList, setHoursList] = useState([]);
   const [ selectedData , setSelectedData ] = useState({});
@@ -54,7 +54,7 @@ export default function ReserveParking({ navigation }) {
       return
     }
     setScheduling({...scheduling, date: selectedData.date, hour: selectedHour.hour})
-    navigation.navigate('ConfirmReservation');
+    navigation.navigate('ScheduleParkingInfo');
   }
   
     return (
@@ -63,7 +63,7 @@ export default function ReserveParking({ navigation }) {
           <ParkingCard
             isOpen
             price={selectedParkingSpace.price}
-            title="Estacionamento mais barato"
+            title={selectedParkingSpace.name}
             distance={selectedParkingSpace.distance}
             review={selectedParkingSpace.rate}
             hours={selectedParkingSpace.day_time}

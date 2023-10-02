@@ -27,7 +27,15 @@ import {DriverContext, useDriverContext} from "../../Context";
 
 function HomeScreen({ navigation }) {
   const [inputText, setInputText] = useState('');
-  const { reservations, parking_spaces } = useDriverContext();
+  const { reservations, parking_spaces, setSelectedParkingSpace } = useDriverContext();
+
+  function visualizeSchedule(parking_id) {
+    const currentParkingSpace = parking_spaces.filter((parking_space) => {
+      return parking_space.id === parking_id
+    })[0];
+    setSelectedParkingSpace(currentParkingSpace);
+    navigation.navigate('VisualizeSchedule');
+  }
   return (
     <SafeView>
       <StatusBar backgroundColor="transparent" />
@@ -61,9 +69,6 @@ function HomeScreen({ navigation }) {
         <TicketContainer>
           <TicketHeader>
             <Title>Próximas reservas</Title>
-            <TouchableOpacity onPress={() => {}}>
-              <Badge label="Ver todas" type="default" />
-            </TouchableOpacity>
           </TicketHeader>
           <FlatList
             horizontal
@@ -74,6 +79,8 @@ function HomeScreen({ navigation }) {
               hour={item.ticket_hour}
               ticket_date={item.ticket_date}
               ticket_status={item.status}
+              parking_id={item.parking_id}
+              isDriverFunction={visualizeSchedule}
               isDriver
             />}
             keyExtractor={(item) => item.parking_id}

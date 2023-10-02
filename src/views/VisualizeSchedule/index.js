@@ -9,9 +9,10 @@ import PolicyMessage from '../../components/utils/PolicyMessage/index.js';
 import MainButton from '../../components/utils/MainButton/index.js';
 import PaymentInfo from '../../components/PaymentInfo/index.js';
 import {useDriverContext} from "../../Context";
+import * as Constants from "../../constants";
 
-export default function ConfirmReservation({navigation}) {
-  const { selectedParkingSpace, scheduling, setScheduling } = useDriverContext();
+export default function VisualizeSchedule({navigation}) {
+  const { selectedParkingSpace, scheduling, reservations } = useDriverContext();
 
   return (
     <ScrollView>
@@ -27,17 +28,15 @@ export default function ConfirmReservation({navigation}) {
           activeOpacity={1}
           style={{borderBottomWidth: 0, marginLeft: -16, marginRight: -16}}
         />
-        <Separator style={{marginBottom: 16}}/>
+        <MainButton text={"Ver detalhes de estacionamento"} styleName="transparent" iconName="arrow-forward" callback={() => navigation.navigate('Success')}/>
+        <Separator style={{marginTop: 16, marginBottom: 16}}/>
 
-        <SchedulingInfo title={'Agendamento'} date={scheduling.date} hour={scheduling.hour} />
+        <SchedulingInfo parkingCode={reservations[0].code} status={"Confirmado"} title={'Sua reserva'} date={scheduling.date} hour={scheduling.hour} />
         <Separator style={{marginTop: 24, marginBottom: 16}}/>
         <AddressInfo title={"Endereço"} address={selectedParkingSpace.address}/>
-        <Separator style={{marginTop: 24, marginBottom: 16}}/>
-        <PolicyMessage title={"Política de cancelamento"} message={"Caso o cancelamento seja confirmado em pelo menos 24 horas antes do horário agendado receba de volta o valor integral que você pagou. Sem reembolso caso falte menos de 24 horas para a sua reserva."}/>
 
         <Separator style={{marginTop: 24}}/>
-        <PaymentInfo title={'Valores'} fee={Number(selectedParkingSpace.price_table["Taxa de reserva"])} time={'4'} value={11}/>
-        <MainButton style={{marginTop: 16}} text={"Confirmar reserva"} styleName="default" iconName="arrow-forward" callback={() => navigation.navigate('Success')}/>
+        <PaymentInfo method={"Crédito"} status={"8:30 02/10/2023"} title={'Pagamento'} fee={Number(selectedParkingSpace.price_table["Taxa de reserva"])} time={'4'} value={11}/>
       </MainView>
     </ScrollView>
   )

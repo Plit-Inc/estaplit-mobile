@@ -2,26 +2,28 @@ import {BoldSubtitle, CancelScheduleStyle, Subtitle, Title} from "./style";
 import {View} from "react-native";
 import MainButton from "../../components/utils/MainButton";
 import * as Constants from '../../../src/constants/index';
+import {useDriverContext} from "../../Context";
 
-export default function CancelSchedule({ isRefund }) {
+export default function CancelSchedule({ isRefund, navigation }) {
+    const { selectedParkingSpace, scheduling, reservations } = useDriverContext();
     return (
         <CancelScheduleStyle>
             <View style={{gap: 16}}>
                 <View>
                     <Title>Código da reserva</Title>
-                    <Subtitle>20032023-001</Subtitle>
+                    <Subtitle>{reservations[0].code}</Subtitle>
                 </View>
                 <View>
                     <Title>Data</Title>
-                    <Subtitle>24 Jan.2023</Subtitle>
+                    <Subtitle>{scheduling.date}</Subtitle>
                 </View>
                 <View>
                     <Title>Horário</Title>
-                    <Subtitle>13:00</Subtitle>
+                    <Subtitle>{scheduling.hour}</Subtitle>
                 </View>
                 <View>
                     <Title>Local</Title>
-                    <Subtitle><BoldSubtitle>Estapar Estacionamento</BoldSubtitle>. Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560</Subtitle>
+                    <Subtitle><BoldSubtitle>{reservations[0].parking_name}</BoldSubtitle>. {reservations[0].address}</Subtitle>
                 </View>
                 <View>
                     <Title>Reembolso</Title>
@@ -31,7 +33,7 @@ export default function CancelSchedule({ isRefund }) {
 
                 </View>
             </View>
-            <MainButton style={{backgroundColor: Constants.colors.error["500"]}} text={"Cancelar reserva"} styleName={"default"}/>
+            <MainButton style={{backgroundColor: Constants.colors.error["500"]}} text={"Cancelar reserva"} styleName={"default"} callback={() => {navigation.navigate('Home')}}/>
         </CancelScheduleStyle>
     )
 }

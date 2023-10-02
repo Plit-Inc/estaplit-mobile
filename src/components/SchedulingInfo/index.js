@@ -1,20 +1,35 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import Title from '../utils/Title/index.js'
-import { InfoContainer, InfoHeader, InfoCode, InfoDate, DateTimeContainer, InfoStatus, DateTimeCard, InfoCodeContainer, WarningText, InfoStatusContainer,WarningContainer } from './style.js'
+import {
+  InfoContainer,
+  InfoHeader,
+  InfoCode,
+  InfoDate,
+  DateTimeContainer,
+  InfoStatus,
+  DateTimeCard,
+  InfoCodeContainer,
+  WarningText,
+  InfoStatusContainer,
+  WarningContainer,
+  InfoDateTitle
+} from './style.js'
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { AutoCompleteConfig, colors } from '../../constants/index.js'
+import {AutoCompleteConfig, colors, SectionTitle} from '../../constants/index.js'
+import WarningCard from "../utils/WarningCard";
 
 export default function SchedulingInfo({ title, status, parkingCode, date, hour, }) {
   return (
     <InfoContainer>
       <InfoHeader>
-        <Title text={title}/>
-        {status && 
-          <InfoStatusContainer>
-            <InfoStatus>{status}</InfoStatus>
-          </InfoStatusContainer>}
-      </InfoHeader>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+          <SectionTitle>{title}</SectionTitle>
+          {status &&
+            <InfoStatusContainer>
+              <InfoStatus>{status}</InfoStatus>
+            </InfoStatusContainer>}
+        </View>
       {parkingCode &&
         <InfoCodeContainer>
           <Text>Código da Reserva</Text>
@@ -23,23 +38,16 @@ export default function SchedulingInfo({ title, status, parkingCode, date, hour,
          }
       <DateTimeContainer>
           <DateTimeCard>
-            <Text>Data</Text>
+            <InfoDateTitle>Data</InfoDateTitle>
             <InfoDate>{date}</InfoDate>
           </DateTimeCard>
           <DateTimeCard>
-            <Text>Horário</Text>
+            <InfoDateTitle>Horário</InfoDateTitle>
             <InfoDate>{hour}</InfoDate>
           </DateTimeCard>
         </DateTimeContainer>
-      <WarningContainer>
-      <Ionicons
-              name="warning-outline"
-              size={AutoCompleteConfig.RowIcon.size}
-              color={AutoCompleteConfig.Icon.color}
-              style={{ color: colors.alert[600] }}
-            />
-      <WarningText>Se liga! Tolerância máxima de 1 hora após o horário agendado.</WarningText>
-      </WarningContainer>
+      </InfoHeader>
+      <WarningCard style={{marginTop: 16}} type={'message'} text={"Se liga! Tolerância máxima de 1 hora após o horário agendado."}/>
       
     </InfoContainer>
   )

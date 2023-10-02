@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export const fontsLoadedConfig = {
   'Jano-Regular': require('../../assets/fonts/Jano-Sans-Pro-Regular.otf'),
   'Jano-SemiBold': require('../../assets/fonts/Jano-Sans-Pro-SemiBold.otf'),
@@ -493,3 +495,20 @@ export const ContainerConfig = {
     TitleColor: colors.gray[600],
   },
 };
+
+export const SectionTitle = styled.Text`
+  font-family: ${parkingDetailConfig.Utils.fontFamily.Medium};
+  font-size: ${parkingDetailConfig.Utils.FontSize.Medium};
+  color: ${colors.gray[800]};
+`
+
+export const SectionSubtitle = styled.Text`
+  font-family: ${parkingDetailConfig.Utils.fontFamily.Regular};
+  font-size: ${parkingDetailConfig.Utils.FontSize.Medium};
+  color: ${colors.gray[600]};
+`;
+
+export const Section = styled.View`
+  background-color:  ${colors.gray[100]};
+  padding: 16px;
+`;

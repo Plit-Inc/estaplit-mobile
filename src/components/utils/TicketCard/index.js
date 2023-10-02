@@ -14,7 +14,7 @@ import { ticketCardConfig } from '../../../constants/index';
 import Title from '../Title';
 import MainButton from '../MainButton';
 
-function TicketCard({ title, subtitle, isDriver, ticket_date, hour, ticket_status }) {
+function TicketCard({ title, subtitle, isDriver, ticket_date, hour, ticket_status, parking_id, isDriverFunction }) {
   return (
     <Container>
       <Header>
@@ -46,6 +46,7 @@ function TicketCard({ title, subtitle, isDriver, ticket_date, hour, ticket_statu
           text="Ver detalhes"
           iconName="arrow-forward"
           styleName="transparent"
+          callback={() => {isDriverFunction(parking_id)}}
       />
       }
 
