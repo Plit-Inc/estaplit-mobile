@@ -41,6 +41,5 @@ export const DateToggleSelectedStyle = styled.View`
   border-radius: ${Constants.dateToggleConfig.Utils.borderRadius};
   border: ${Constants.dateToggleConfig.Utils.border};
   width: ${Constants.dateToggleConfig.Utils.maxWidth};
-  height: ${Constants.dateToggleConfig.Utils.maxWidth};
   margin-right: 10px;
 `;

@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { DriverContext} from '../../Context/index.js';
+import {DriverContext, useDriverContext} from '../../Context/index.js';
 import ParkingCard from '../../components/utils/ParkingCard';
 import { StyledContainer, ScrowViewStyled, MainView, DateHoursContainer,BodyContainer, StyledParkingContainer } from './style.js';
 import Title from '../../components/utils/Title/index.js';
@@ -9,65 +9,9 @@ import HourToggle from '../../components/utils/HourToggle/index.js'
 
 import MainButton from '../../components/utils/MainButton/index.js';
 import Separator from "../../components/utils/Separator";
-export default function ReserveParking() {
-  const dates = [{
-    date:'12/10',
-    day: 'segunda',
-    hours:[{
-      hour:'10:00',
-      available: 4
-    },
-    {
-      hour:'10:00',
-      available: 4
-    },
-    {
-      hour:'10:00',
-      available: 4
-    },
-    {
-      hour:'10:00',
-      available: 4
-    },]
-  },
-  {
-    date:'13/10',
-    day: 'terça',
-    hours:[{
-      hour:'11:00',
-      available: 4
-    },
-    {
-      hour:'11:00',
-      available: 4
-    },
-    {
-      hour:'11:00',
-      available: 4
-    },]
-  },
-  {
-    date:'14/10',
-    day: 'quarta',
-    hours:[{
-      hour:'12:00',
-      available: 4
-    },
-    {
-      hour:'12:00',
-      available: 4
-    },
-    {
-      hour:'12:00',
-      available: 4
-    },
-    {
-      hour:'12:00',
-      available: 4
-    },]
-  }].map((date)=>({...date, isSelected: false}))
-
-  const { scheduling, setScheduling } = React.useContext(DriverContext);
+export default function ReserveParking({ navigation }) {
+  const { selectedParkingSpace, scheduling, setScheduling } = useDriverContext();
+  const dates = selectedParkingSpace.available_dates.map((date)=>({...date, isSelected: false}))
   const [dateList, setdateList] = useState(dates);
   const [hoursList, setHoursList] = useState([]);
   const [ selectedData , setSelectedData ] = useState({});
@@ -110,7 +54,7 @@ export default function ReserveParking() {
       return
     }
     setScheduling({...scheduling, date: selectedData.date, hour: selectedHour.hour})
-    
+    navigation.navigate('ConfirmReservation');
   }
   
     return (
@@ -118,13 +62,14 @@ export default function ReserveParking() {
         <StyledParkingContainer>
           <ParkingCard
             isOpen
-            price="R$1,25"
+            price={selectedParkingSpace.price}
             title="Estacionamento mais barato"
-            distance="200m"
-            review="4,5 (233)"
-            hours="07:00 - 22:00"
-            imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
+            distance={selectedParkingSpace.distance}
+            review={selectedParkingSpace.rate}
+            hours={selectedParkingSpace.day_time}
+            imagePath={selectedParkingSpace.images[0]}
             activeOpacity={1}
+            style={{margin: -16}}
           />
         </StyledParkingContainer>
         <Separator style={{marginTop: 18}}/>
@@ -163,7 +108,7 @@ export default function ReserveParking() {
           </ScrowViewStyled>
         
         </DateHoursContainer>
-        <MainButton style={{marginBottom: 18}} text={"Continuar"} styleName="default" iconName="arrow-forward" onPress={handleScheduling}/>
+        <MainButton style={{marginBottom: 18}} text={"Continuar"} styleName="default" iconName="arrow-forward" callback={handleScheduling}/>
         </BodyContainer>
       </MainView>
     )

@@ -1,33 +1,28 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
+import * as mock from '../services/mock.json';
 
 export const DriverContext = createContext();
 
 export function DriverContextProvider({ children }) {
-  // aqui vai o componente do estacionamento selecionado
-  const [selectedAddress, setSelectedAddress] = useState(null);
-  const [selectedParking, setSelectedParking] = useState(null);
-  const [scheduling, setScheduling] = useState({
-    date: '13/05/23',
-    hour: '14:00',
-    warning: 'Você tem 15 minutos para chegar ao estacionamento',
-    location: 'Rua do Futuro, 123',
-    bookingStatus: 'Reservado',
-    bookingCode: '123456',
-  });
+  const { reservations, parking_spaces } = mock
+  const [selectedParkingSpace, setSelectedParkingSpace] = useState(undefined);
+  const [scheduling, setScheduling] = useState({});
   const [userInformation, setUserInformation] = useState({
-    name: 'João',
+    name: '',
     tel: '',
     car: '',
   });
   return (
     <DriverContext.Provider
       value={{
-        selectedParking,
-        setSelectedParking,
+        reservations,
+        parking_spaces,
+        selectedParkingSpace,
+        setSelectedParkingSpace,
         scheduling,
         setScheduling,
         userInformation,
-        setUserInformation,
+        setUserInformation
       }}
     >
       {children}

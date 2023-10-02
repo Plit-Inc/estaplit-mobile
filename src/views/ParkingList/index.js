@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ScrollView, View, TouchableOpacity } from 'react-native';
+import {ScrollView, View, TouchableOpacity, FlatList} from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LocationContainer, SafeView, Info, ParkingListTitle } from './style';
@@ -9,9 +9,14 @@ import { colors } from '../../constants';
 import OptionsModal from '../../components/utils/OptionsModal';
 import Title from '../../components/utils/Title';
 import FilterCard from '../../components/utils/FilterCard';
+import {useNavigation} from "@react-navigation/native";
+import {useDriverContext} from "../../Context";
+import TicketCard from "../../components/utils/TicketCard";
 
-function ParkingListScreen() {
-  const [inputText, setInputText] = useState('Marco Zero');
+function ParkingListScreen({route, navigation}) {
+  const { destination } = route.params;
+  const { setSelectedParkingSpace, parking_spaces } = useDriverContext();
+  const [inputText, setInputText] = useState(destination);
 
   const [allFilters, setAllFilters] = useState(false);
   const [acceptsReservation, setAcceptsReservation] = useState(false);
@@ -34,7 +39,7 @@ function ParkingListScreen() {
 
   return (
     <SafeView>
-      <View>
+      <View style={{height: '100%'}}>
         <LocationContainer>
           <ParkingListTitle>Indo para</ParkingListTitle>
           <View
@@ -87,39 +92,21 @@ function ParkingListScreen() {
             callback={setOnlinePayment}
           />
         </ScrollView>
-        <Info>3 estacionamentos encontrados</Info>
-        <ScrollView alwaysBounceVertical showsHorizontalScrollIndicator={false}>
-          <ParkingCard
+        <Info>{parking_spaces.length} estacionamentos encontrados</Info>
+        <FlatList
+          data={parking_spaces}
+          renderItem={({ item }) => <ParkingCard
             isOpen
-            callback={() => console.log('oi')}
-            price="R$1,25"
-            title="Estacionamento do seu João Dawn"
-            distance="200m"
-            review="4,5 (233)"
-            hours="07:00 - 22:00"
-            imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
-          />
-          <ParkingCard
-            isOpen
-            callback={() => console.log('oi')}
-            price="R$1,25"
-            title="Estacionamento da Thaiszinha mil grauuuuuuuu"
-            distance="200m"
-            review="4,5 (233)"
-            hours="07:00 - 22:00"
-            imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
-          />
-          <ParkingCard
-            isOpen
-            callback={() => console.log('oi')}
-            price="R$1,25"
-            title="Estacionamento Juninho Del Rey"
-            distance="200m"
-            review="4,5 (233)"
-            hours="07:00 - 22:00"
-            imagePath="https://jconlineimagem.ne10.uol.com.br/imagem/noticia/2016/04/19/normal/e7e14c4d697e5b686f8dca60cd97973f.jpg"
-          />
-        </ScrollView>
+            callback={() => { navigation.navigate('ParkingDetail'); setSelectedParkingSpace(item) }}
+            price={item.price}
+            title={item.name}
+            distance={item.distance}
+            review={item.rate}
+            hours={item.hour}
+            imagePath={item.images[0]}
+          />}
+          keyExtractor={(item) => item.id}
+        />
       </View>
 
       <Modalize

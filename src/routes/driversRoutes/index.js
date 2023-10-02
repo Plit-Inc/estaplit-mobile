@@ -19,14 +19,14 @@ export default function DriversRoutes() {
     try {
       await Share.share({
         message:
-          'React Native | A framework for building native apps using React',
+          'Confira esse estacionamento que encontrei no estaplit!',
       });
     } catch (error) {
       Alert.alert(error.message);
     }
   };
   return (
-    <Stack.Navigator initialRouteName="ParkingDetail" screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -67,6 +67,9 @@ export default function DriversRoutes() {
                 color={colors.primary[500]}
               />
             </TouchableWithoutFeedback>
+          ),
+          headerTitle: () => (
+            <HeaderTitle text={"Reservar vaga"}/>
           ),
         })}
       />

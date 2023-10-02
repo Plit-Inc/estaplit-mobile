@@ -10,7 +10,7 @@ import {
 import Badge from '../Badge';
 import Info from '../Info';
 
-function ParkingCloseByCard({ title }) {
+function ParkingCloseByCard({ title, distance, price, rating, open_parking_spot }) {
   const icon = (
     <MapPinLine
       size={parkingCardConfig.Utils.IconSize}
@@ -29,7 +29,7 @@ function ParkingCloseByCard({ title }) {
                 color={parkingCardConfig.Utils.IconColor}
               />
             )}
-            text="em 500m"
+            text={`em ${distance}m`}
           />
           <Info
             IconComponent={() => (
@@ -38,7 +38,7 @@ function ParkingCloseByCard({ title }) {
                 color={parkingCardConfig.Utils.IconColor}
               />
             )}
-            text="4,3 (233)"
+            text={rating}
           />
         </Row>
         <Row>
@@ -49,13 +49,14 @@ function ParkingCloseByCard({ title }) {
                 color={parkingCardConfig.Utils.IconColor}
               />
             )}
-            text="A partir de R$4,00"
+            text={`A partir de R$${price}`}
           />
         </Row>
       </InfosContainer>
-      <View style={{ paddingRight: 96 }}>
+      {open_parking_spot > 0 && <View style={{ paddingRight: 96 }}>
         <Badge label="Vagas disponiveis" type="success" />
-      </View>
+      </View>}
+
     </Container>
   );
 }

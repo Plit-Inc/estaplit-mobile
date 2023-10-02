@@ -52,10 +52,6 @@
     },
     "plugins": [
       "./src/plugins/android-manifest.plugin.js"
-    ],
-    "extra": {
-      "GOOGLE_API_KEY": "${GOOGLE_KEY}",
-    }
     ]
   }
 }

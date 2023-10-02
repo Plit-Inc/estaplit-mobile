@@ -39,7 +39,6 @@ export const Title = styled.Text`
 `;
 
 export const InputContainer = styled.View`
-  padding-top: 32px;
 `;
 
 export const TicketHeader = styled.View`

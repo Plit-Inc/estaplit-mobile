@@ -20,7 +20,7 @@ import {
 import Info from "../../components/utils/Info";
 import {Clock, MapPinLine, Star, Money, ArrowUpRight} from 'phosphor-react-native';
 import * as Constants from '../../../src/constants/index';
-import {SafeAreaView, ScrollView, TouchableOpacity, View} from "react-native";
+import {FlatList, SafeAreaView, ScrollView, TouchableOpacity, View} from "react-native";
 import ParkingDetailCard from "../../components/utils/ParkingDetailCard";
 import MainButton from "../../components/utils/MainButton";
 import Separator from "../../components/utils/Separator";
@@ -30,26 +30,29 @@ import MapsButton from "../../components/utils/MapsButton";
 import {parkingCardConfig} from "../../../src/constants/index";
 import React from "react";
 import {MapsButtonTextStyle} from "../../components/utils/MapsButton/style";
+import {useDriverContext} from "../../Context";
+import ParkingCloseByCard from "../../components/utils/ParkingCloseBy";
 
 
-export default function ParkingDetail() {
-    const weekdays = {"Segunda-feira": "07:00 às 19:00", "Terça-feira": "07:00 às 19:00", "Quarta-feira": "07:00 às 19:00", "Quinta-feira": "07:00 às 19:00", "Sexta-feira": "07:00 às 19:00", "Sábado": "07:00 às 19:00", "Domingo": "Fechado"}
-    const priceTable = {"Até 20 minutos": "Grátis", "4 horas": "R$ 11,00", "Hora adicional": "+ R$ 4,00", "Taxa de reserva": "+ R$ 5,00"}
+export default function ParkingDetail({ navigation }) {
+    const { selectedParkingSpace } = useDriverContext();
+    const weekdays = selectedParkingSpace.working_hours;
+    const priceTable = selectedParkingSpace.price_table;
     return (
         <SafeAreaView>
             <MainScrollView>
                 <MainView>
-                    <ParkingTitle numberOfLines={2}>RECIFE ROTATIVO ESTACIONAMENTOS</ParkingTitle>
+                    <ParkingTitle numberOfLines={2}>{selectedParkingSpace.name}</ParkingTitle>
                     <Row>
                         <Info 
-                            text={`500m do seu destino`} 
+                            text={`${selectedParkingSpace.distance}m do seu destino`}
                             IconComponent={ () => <MapPinLine
                             size={Constants.parkingDetailConfig.Utils.IconSize}
                             color={Constants.parkingDetailConfig.Utils.IconColor}
                             />}
                         />
                         <Info 
-                            text={`4.3(233)`} 
+                            text={`${selectedParkingSpace.rate}`}
                             IconComponent={ () => <Star
                             size={Constants.parkingDetailConfig.Utils.IconSize}
                             color={Constants.parkingDetailConfig.Utils.IconColor}
@@ -58,23 +61,23 @@ export default function ParkingDetail() {
                         </Row>
                     <Row>
                     <Info
-                        text={`A partir de R$4,00`}
+                        text={`A partir de R$${selectedParkingSpace.price}`}
                         IconComponent={ () => <Money
                         size={Constants.parkingDetailConfig.Utils.IconSize}
                         color={Constants.parkingDetailConfig.Utils.IconColor}
                         />}
                     />
                     <Info
-                        text={`07:99-19:00`}
+                        text={`${selectedParkingSpace.day_time}`}
                         IconComponent={ () => <Clock
                         size={Constants.parkingDetailConfig.Utils.IconSize}
                         color={Constants.parkingDetailConfig.Utils.IconColor}
                         />}
                     />
                 </Row>
-                    <ParkingDetailCard style={{marginTop: 20}} />
-                    <MainButton style={{marginTop: 16}} text={"Reservar vaga"} styleName="default" iconName="calendar"/>
-                    <MainButton callback={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}} style={{marginTop: 16}} text={"Ir para o estacionamento"} styleName="transparent" iconName="arrow-forward"/>
+                    <ParkingDetailCard open_parking_spot={selectedParkingSpace.open_parking_spot} open_schedule_parking_spot={selectedParkingSpace.open_schedule_parking_spot} total_parking_spot={selectedParkingSpace.open_schedule_parking_spot} total_schedule_parking_spot={selectedParkingSpace.total_schedule_parking_spot} style={{marginTop: 20}} />
+                    <MainButton style={{marginTop: 16}} text={"Reservar vaga"} styleName="default" iconName="calendar" callback={() => navigation.navigate('ReserveParking')}/>
+                    <MainButton callback={() => {showLocation({latitude: selectedParkingSpace.latitude, longitude: selectedParkingSpace.longitude})}} style={{marginTop: 16}} text={"Ir para o estacionamento"} styleName="transparent" iconName="arrow-forward"/>
                     <Separator style={{marginTop: 16}}/>
                     <SectionTitle style={{marginBottom: 16}}>Tabela de preços</SectionTitle>
                     <Table>
@@ -90,11 +93,11 @@ export default function ParkingDetail() {
                         ))}
                     </Table>
                     <SectionSubtitle style={{marginBottom: 24}}>Pagamentos no local via Dinheiro, Pix, Cartões de Crédito e Débito</SectionSubtitle>
-                    <WarningCard text={"Apenas 3 vagas disponíveis para reserva. Garanta a sua e fique tranquilo!"}/>
+                    <WarningCard text={`Apenas ${selectedParkingSpace.open_schedule_parking_spot} vagas disponíveis para reserva. Garanta a sua e fique tranquilo!`}/>
                     <Separator style={{marginTop: 24}}/>
                     <SectionTitle>Endereço</SectionTitle>
-                    <SectionSubtitle style={{marginBottom: 16}}>Av. Jorn. Aníbal Fernandes, s/n - Cidade Universitária, Recife - PE, 50740-560</SectionSubtitle>
-                    <MapsButton text={"Ver no mapa"} onPress={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}}/>
+                    <SectionSubtitle style={{marginBottom: 16}}>{selectedParkingSpace.address}</SectionSubtitle>
+                    <MapsButton text={"Ver no mapa"} onPress={() => {showLocation({latitude: selectedParkingSpace.latitude, longitude: selectedParkingSpace.longitude})}}/>
                     <Separator style={{marginTop: 24}}/>
                     <SectionTitle>Horário de funcionamento</SectionTitle>
                     <OpeningHoursTable style={{marginTop: 16}}>
@@ -113,18 +116,22 @@ export default function ParkingDetail() {
                                 size={Constants.parkingDetailConfig.Utils.FontSize.Large}
                                 color={Constants.colors.primary["500"]}
                             />
-                            <ReviewScoreText>4.3 (233)</ReviewScoreText>
+                            <ReviewScoreText>{selectedParkingSpace.rate}</ReviewScoreText>
                         </View>
-                        <TouchableOpacity onPress={() => {showLocation({latitude: 38.8976763, longitude: -77.0387185})}} style={{flexDirection: 'row', alignItems: 'center', gap: 8}}>
+                        <TouchableOpacity onPress={() => {showLocation({latitude: selectedParkingSpace.latitude, longitude: selectedParkingSpace.longitude})}} style={{flexDirection: 'row', alignItems: 'center', gap: 8}}>
                             <MapsButtonTextStyle>Ver no google</MapsButtonTextStyle>
                             <ArrowUpRight size={16} color={Constants.colors.gray["600"]}/>
                         </TouchableOpacity>
                     </View>
-                    <ScrollView horizontal={true} style={{marginTop: 16}} contentContainerStyle={{ gap: 12 }}>
-                        <ParkingSpaceImage source={{ uri: 'https://lh3.googleusercontent.com/p/AF1QipOM5FdNVbrmrPeWHubsuaTjyYFZzLLaL7ICGYwA=s1360-w1360-h1020' }}/>
-                        <ParkingSpaceImage source={{ uri: 'https://lh3.googleusercontent.com/p/AF1QipOM5FdNVbrmrPeWHubsuaTjyYFZzLLaL7ICGYwA=s1360-w1360-h1020' }}/>
-                        <ParkingSpaceImage source={{ uri: 'https://lh3.googleusercontent.com/p/AF1QipOM5FdNVbrmrPeWHubsuaTjyYFZzLLaL7ICGYwA=s1360-w1360-h1020' }}/>
-                    </ScrollView>
+                    <View horizontal={true} style={{marginTop: 16}} >
+                        <FlatList
+                          contentContainerStyle={{ gap: 12 }}
+                          horizontal
+                          data={selectedParkingSpace.images}
+                          renderItem={({ item, index }) => <ParkingSpaceImage key={index} source={{ uri: item }}/>}
+                          showsHorizontalScrollIndicator={false}
+                        />
+                    </View>
                     <Separator style={{marginTop: 24}}/>
                     <SectionTitle>Política de cancelamento</SectionTitle>
                     <SectionSubtitle>Caso o cancelamento da reserva seja confirmado em pelo menos 24 horas antes do horário agendado receba de volta o valor integral que você pagou.</SectionSubtitle>

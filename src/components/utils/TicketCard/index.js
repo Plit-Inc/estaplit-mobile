@@ -14,7 +14,7 @@ import { ticketCardConfig } from '../../../constants/index';
 import Title from '../Title';
 import MainButton from '../MainButton';
 
-function TicketCard({ title, subtitle, isDriver }) {
+function TicketCard({ title, subtitle, isDriver, ticket_date, hour, ticket_status }) {
   return (
     <Container>
       <Header>
@@ -24,17 +24,17 @@ function TicketCard({ title, subtitle, isDriver }) {
               size={ticketCardConfig.Utils.IconSize}
               color={ticketCardConfig.Utils.IconColor}
             />
-            <Text style={{lineHeight: 15}}>26 Jan. 2023</Text>
+            <Text style={{lineHeight: 15}}>{ticket_date}</Text>
           </HeaderContent>
           <HeaderContent>
             <Clock
               size={ticketCardConfig.Utils.IconSize}
               color={ticketCardConfig.Utils.IconColor}
             />
-            <Text style={{lineHeight: 15}}>11:00</Text>
+            <Text style={{lineHeight: 15}}>{hour}</Text>
           </HeaderContent>
         </HeaderRow>
-        <Badge label={isDriver ? "Confirmada" : "Pago"} type="success" />
+        <Badge label={ticket_status} type="success" />
       </Header>
       <Content>
         <Title text={title} color={ticketCardConfig.Utils.TitleColor} />

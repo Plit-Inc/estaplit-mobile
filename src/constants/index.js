@@ -221,8 +221,8 @@ export const dateToggleConfig = {
     headerTextFontSize: '12px',
     borderRadius: '12px',
     border: `1px solid ${colors.gray[300]}`,
-    padding: '12px',
-    maxWidth: '80px',
+    padding: '16px',
+    maxWidth: '100px',
   },
   Default: {
     backgroundColor: colors.gray[100],

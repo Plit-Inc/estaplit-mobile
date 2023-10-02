@@ -6,9 +6,8 @@ import * as Location from 'expo-location';
 import Constants from 'expo-constants';
 import { colors, AutoCompleteConfig } from '../../../constants/index';
 
-const { GOOGLE_PLACES_API_KEY } = Constants.manifest.extra;
-
 function AutoCompleteInput({ callback }) {
+  const GOOGLE_PLACES_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_KEY;
   const [liveLocation, setLiveLocation] = useState('');
 
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -39,7 +38,6 @@ function AutoCompleteInput({ callback }) {
     if (selectedLocation) {
       callback(selectedLocation);
     }
-    callback(liveLocation);
   }, [selectedLocation, liveLocation]);
 
   return (
@@ -54,7 +52,7 @@ function AutoCompleteInput({ callback }) {
           components: 'country:br',
         }}
         onPress={(data, details) => {
-          setSelectedLocation(details.geometry.location);
+          setSelectedLocation(data.terms[0].value);
         }}
         onFail={(error) => console.error(error)}
         fetchDetails

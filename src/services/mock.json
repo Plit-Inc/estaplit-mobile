@@ -49,10 +49,66 @@
         "Domingo": "Fechado"
       },
       "payment_options": ["Cartão de Crédito", "Pix", "Dinheiro", "Débito"],
-      "open_parking_stop": 32,
+      "open_parking_spot": 32,
       "total_parking_spot": 60,
       "open_schedule_parking_spot": 3,
       "total_schedule_parking_spot": 20,
+      "available_dates": [{
+        "date":"12/10",
+        "day": "segunda",
+        "hours":[{
+          "hour":"10:00",
+          "available": 4
+        },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          },
+          {
+            "hour":"10:00",
+            "available": 4
+          }]
+      },
+        {
+          "date":"13/10",
+          "day": "terça",
+          "hours":[{
+            "hour":"11:00",
+            "available": 4
+          },
+            {
+              "hour":"11:00",
+              "available": 4
+            },
+            {
+              "hour":"11:00",
+              "available": 4
+            }]
+        },
+        {
+          "date":"14/10",
+          "day": "quarta",
+          "hours":[{
+            "hour":"12:00",
+            "available": 4
+          },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            },
+            {
+              "hour":"12:00",
+              "available": 4
+            }]
+        }],
       "price_table": {
         "Até 20 minutos": "Grátis",
         "4 horas": "R$ 11,00",
@@ -81,7 +137,7 @@
         "Domingo": "08:00 às 00:00"
       },
       "payment_options": ["Cartão de Crédito", "Pix", "Dinheiro", "Débito"],
-      "open_parking_stop": 25,
+      "open_parking_spot": 25,
       "total_parking_spot": 50,
       "open_schedule_parking_spot": 5,
       "total_schedule_parking_spot": 10,
@@ -113,7 +169,7 @@
         "Domingo": "Fechado"
       },
       "payment_options": ["Cartão de Crédito", "Pix", "Dinheiro", "Débito"],
-      "open_parking_stop": 15,
+      "open_parking_spot": 15,
       "total_parking_spot": 20,
       "open_schedule_parking_spot": 2,
       "total_schedule_parking_spot": 5,
@@ -146,7 +202,7 @@
         "Domingo": "Fechado"
       },
       "payment_options": ["Cartão de Crédito", "Pix", "Débito"],
-      "open_parking_stop": 10,
+      "open_parking_spot": 10,
       "total_parking_spot": 20,
       "open_schedule_parking_spot": 5,
       "total_schedule_parking_spot": 10,
@@ -178,7 +234,7 @@
         "Domingo": "Fechado"
       },
       "payment_options": ["Dinheiro", "Pix", "Débito"],
-      "open_parking_stop": 10,
+      "open_parking_spot": 10,
       "total_parking_spot": 20,
       "open_schedule_parking_spot": 5,
       "total_schedule_parking_spot": 10,
