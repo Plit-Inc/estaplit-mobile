@@ -178,7 +178,7 @@ export default function DriversRoutes() {
         component={VisualizeSchedule}
         options={({ navigation }) => ({
           headerLeft: () => (
-            <TouchableWithoutFeedback onPress={navigation.goBack}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
               <Ionicons
                 name="arrow-back"
                 size={20}
