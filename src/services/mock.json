@@ -7,7 +7,9 @@
       "ticket_hour": "07:30",
       "status": "Confirmada",
       "code": "24052023-001",
-      "address": "Tv. do Amorim, 75 - Recife, PE, 50030-150"
+      "address": "Tv. do Amorim, 75 - Recife, PE, 50030-150",
+      "car": "Renault Kwid",
+      "phone_number": "(81) 984506854"
     },
     {
       "parking_id": 2,
@@ -16,7 +18,9 @@
       "ticket_hour": "12:30",
       "status": "Confirmada",
       "code": "051023-002",
-      "address": "Av. Alfredo Lisboa, 2 - Recife, PE, 50020-360"
+      "address": "Av. Alfredo Lisboa, 2 - Recife, PE, 50020-360",
+      "car": "Mazda Miata",
+      "phone_number": "(81) 993239108"
     },
     {
       "parking_id": 3,
@@ -25,7 +29,9 @@
       "ticket_hour": "10:30",
       "status": "Cancelada",
       "code": "10102023-003",
-      "address": "Cais da Alfândega, 13 - Recife, PE, 50030-100"
+      "address": "Cais da Alfândega, 13 - Recife, PE, 50030-100",
+      "car": "Siena",
+      "phone_number": "(81) 998858557"
     }
   ],
   "parking_spaces": [

@@ -1,4 +1,4 @@
-import {SafeAreaView, Text, View, StatusBar} from "react-native";
+import {SafeAreaView, Text, View, StatusBar, FlatList} from "react-native";
 import Badge from "../../components/utils/Badge";
 import {Title} from "../Home/style";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -23,9 +23,14 @@ import Separator from "../../components/utils/Separator";
 import {SectionTitle} from "../ParkingDetail/style";
 import WarningCard from "../../components/utils/WarningCard";
 import TicketCard from "../../components/utils/TicketCard";
+import ParkingCloseByCard from "../../components/utils/ParkingCloseBy";
+import {useDriverContext} from "../../Context";
 
 export default function HomeParkingOwner({ navigation }) {
     const [carsCounter, setCarsCounter] = useState(0);
+    const parkingFree = 20;
+    const parkingSchedule = 15;
+    const { reservations } = useDriverContext();
     return (
         <SafeArea>
             <HomeParkingOwnerStyle>
@@ -51,7 +56,7 @@ export default function HomeParkingOwner({ navigation }) {
                         <CounterTitle>{carsCounter}</CounterTitle>
                         <CounterSubtitle>Carros entraram</CounterSubtitle>
                     </View>
-                    <CounterButton onPress={() => setCarsCounter(carsCounter + 1)}>
+                    <CounterButton onPress={() =>(parkingFree - carsCounter) > 0 && setCarsCounter(carsCounter + 1)}>
                         <Ionicons
                             name="arrow-up-outline"
                             size={24}
@@ -62,24 +67,24 @@ export default function HomeParkingOwner({ navigation }) {
                 </CounterView>
                 <Separator style={{marginTop: 24}}/>
                 <SectionTitle style={{marginBottom: 16}}>Ocupação do Pátio</SectionTitle>
-                <WarningCard style={{marginBottom: 16}} text={"Você não possui mais vagas livres."}/>
+                {(parkingFree - carsCounter) == 0 && <WarningCard style={{marginBottom: 16}} text={"Você não possui mais vagas livres."}/>}
                 <ParkingOccupationTable>
                     <ParkingOccupationRow>
                         <ParkingOccupationText>Vagas livres</ParkingOccupationText>
-                        <ParkingOccupationText>1</ParkingOccupationText>
+                        <ParkingOccupationText>{parkingFree - carsCounter}</ParkingOccupationText>
                     </ParkingOccupationRow>
                     <ParkingOccupationRow>
                         <ParkingOccupationText>Vagas reservadas</ParkingOccupationText>
-                        <ParkingOccupationText>1</ParkingOccupationText>
+                        <ParkingOccupationText>{parkingSchedule}</ParkingOccupationText>
                     </ParkingOccupationRow>
                     <ParkingOccupationRow>
                         <ParkingOccupationText>Vagas ocupadas</ParkingOccupationText>
-                        <ParkingOccupationText>1</ParkingOccupationText>
+                        <ParkingOccupationText>{carsCounter}</ParkingOccupationText>
                     </ParkingOccupationRow>
                     <Separator style={{borderBottomWidth: 2}}/>
                     <ParkingOccupationRow>
                         <ParkingOccupationText isTotal={true}>Tamanho total</ParkingOccupationText>
-                        <ParkingOccupationText isTotal={true}>100</ParkingOccupationText>
+                        <ParkingOccupationText isTotal={true}>{parkingFree + parkingSchedule}</ParkingOccupationText>
                     </ParkingOccupationRow>
                 </ParkingOccupationTable>
                 <Separator style={{marginTop: 24}}/>
@@ -90,9 +95,9 @@ export default function HomeParkingOwner({ navigation }) {
                     </TotalOfSchedulesView>
                 </View>
                 <View style={{marginBottom: 40, gap: 8}}>
-                    <TicketCard title="Estapar Estacionamentos" subtitle={"RENAULT KWID • (81) 9999999999"} isDriver={false} />
-                    <TicketCard title="Estapar Estacionamentos" subtitle={"RENAULT KWID • (81) 9999999999"} isDriver={false} />
-                    <TicketCard title="Estapar Estacionamentos" subtitle={"RENAULT KWID • (81) 9999999999"} isDriver={false} />
+                    {reservations.map((item) => {
+                        return <TicketCard ticket_status={item.status} key={item.parking_id} ticket_date={item.ticket_date} hour={item.ticket_hour} title={item.parking_name} subtitle={`${item.car} • ${item.phone_number}`} isDriver={false} />
+                    })}
                 </View>
             </HomeParkingOwnerStyle>
         </SafeArea>
