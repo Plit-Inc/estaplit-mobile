@@ -8,8 +8,8 @@ export default function Routes() {
     <>
       <NavigationContainer>
         <DriverContextProvider>
-          {/*<DriversRoutes />*/}
-          <ParkingOwnerRoutes />
+          <DriversRoutes />
+          {/*<ParkingOwnerRoutes />*/}
         </DriverContextProvider>
       </NavigationContainer>
     </>

@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "estaplit",
+    "name": "estaplit - driver",
     "slug": "estaplit",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/estaplit-logo.png",
+    "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -43,7 +43,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0519D0"
       },
       "package": "com.joaomadruga.estaplit"
     },
